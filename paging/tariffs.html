@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>渠道运价结构分析</title>
+    <link rel="stylesheet" href="../css/public.css"/>
+    <link rel="stylesheet" href="../css/right.css"/>
+</head>
+<body>
+<div class="page">
+    <!--全局筛选-->
+    <div class="pageSelect">
+        <!--三级筛选-->
+        <div class="floatLeft selectFilter">
+            <select class="oneSelect">
+                <option data-index="-1">--请选择--</option>
+            </select>
+            <select class="twoSelect">
+                <option data-index="-1">--请选择--</option>
+            </select>
+            <select class="threeSelect">
+                <option data-index="-1">--请选择--</option>
+            </select>
+            <input type="button" id="dateClear2" class="date_picker dateClear" value="清 空"/>
+            <input type="submit" id="dateSubmit2" class="date_picker dateClear" value="提 交"/>
+        </div>
+    </div>
+    <!--详情-->
+    <div class="channelLayout">
+        <div class="tariffsTop">
+            <div id="tariffsBar" class="tariffsBar"></div>
+            <div id="tariffsPie" class="tariffsPie"></div>
+            <div id="tariffsBar2" class="tariffsBar2"></div>
+            <div id="tariffsPie2" class="tariffsPie2"></div>
+        </div>
+        <div class="tariffsBottom">
+            <div id="tariffsScatter" class="tariffsScatter"></div>
+            <div id="tariffsScatter2" class="tariffsLine"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="../js/echarts.js"></script>
+<script type="text/javascript" src="../js/tariffs.js"></script>
+</html>

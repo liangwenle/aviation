@@ -1,0 +1,49 @@
+//home.json注释
+首页数据
+name:名称
+allSales:默认销售额
+allProxy:默认代理费
+selectSales:时间筛选销售额
+selectProxy:时间筛选代理费
+
+allDate: 8.1 - 8.7 初始化默认历史销售分析
+allDate2:8.7 - 8.21 初始化默认未来销售分析
+
+selectDate: 8.1 - 8.7 选择时间段历史销售分析
+selectDate2:8.7 - 8.21 选择时间段未来销售分析
+provinceIevel:默认七大地区
+provinceIevel:[
+    {
+        name:地区名
+        value:销售量
+        areaSales:地区销售额
+        areaProxy:地区代理费
+        areaDate:地区日期
+        department:销售部
+        department:[
+            {
+                name:销售部名称
+                value:部门销售量
+                departmentSales:部门销售额
+                departmentProxy:部门代理费
+                departmentDirect:部门直销
+                sub:下级数据
+            }
+        ],
+    }
+],
+provinceIevel2:选择时间段七大地区
+
+
+//渠道结构分析页面
+structure:结构默认数据
+totalRevenue:总收入
+distribution:分销总收入
+direct:直销总收入
+    directDistribution：直销分销
+    分销
+        local_offSite:本地异地
+        agent:代理人
+    直销
+    directChannel:直销渠道
+        website:三级饼图

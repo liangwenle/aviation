@@ -1,0 +1,229 @@
+html,body{
+    overflow-y: auto;
+}
+.page{
+    padding: 10px;
+}
+/*页面全局筛选*/
+.pageSelect{
+    padding: 10px;
+    height: 34px;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+}
+.pageSelect >p{
+    display: inline-block;
+}
+.selectFilter>select{
+    margin-right:5px;
+    min-width: 100px;
+    height: 32px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #777;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    font-family: "微软雅黑", Helvetica, sans-serif;
+}
+/*日期筛选*/
+.pageDate{
+
+}
+/*页面详情*/
+.pageDetail{
+
+}
+
+.chinaBar{
+    margin:10px 0;
+}
+
+.dashBoardText{
+    font-size: 24px;
+    font-weight: bold;
+    color: #777;
+}
+.homeLineXS{
+    height: 250px;
+    width: 49%;
+}
+.homeLine{
+    height: 250px;
+    width:49%;
+}
+.homeChina{
+    width: 50%;
+    height: 400px;
+}
+.homeBar{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 55%;
+    height: 350px;
+}
+
+/*层级筛选框*/
+.date_picker {
+    margin-right: 5px;
+    width: 90px;
+    background: #fefefe;
+    border: 1px solid #fff;
+    font-size: 14px;
+    color: #777;
+    padding: 5px;
+    border-radius: 3px;
+    outline: none
+}
+.dateClear{
+    width:60px;
+    color:#888;
+    cursor: pointer;
+}
+.dateClear:hover{
+    background: #FF5F3E;
+    border-color: #FF5F3E;
+    color:#fff;
+}
+/*渠道结构分析*/
+.channelLayout{
+    position: relative;
+    margin-top: 10px;
+    height: 500px;
+}
+.channelLeft{
+    margin-right:1%;
+    position: absolute;
+    left:0;
+    width: 39%;
+    height: 100%;
+    border:1px solid #eee;
+}
+.channel_totalRevenue{
+    position: absolute;
+    right:20px;
+    top: 8px;
+    z-index: 1;
+}
+.channel_totalRevenue >span{
+    font-size: 16px;
+}
+.totalRevenue,.distribution,.direct{
+    color: red;
+}
+.channelTop{
+    position: absolute;
+    right:0;
+    width: 60%;
+    height: 49%;
+    border:1px solid #eee;
+}
+.channel_twoTopPie{
+    width: 50%;
+    height: 100%;
+}
+.channelbottom{
+    position: absolute;
+    right:0;
+    bottom:0;
+    width: 60%;
+    height: 49%;
+    border:1px solid #eee;
+}
+/*渠道运价结构分析*/
+.tariffsTop{
+    width: 100%;
+    height: 500px;
+    border:1px solid #eee;
+}
+.tariffsBar{
+    position: absolute;
+    width: 49%;
+    height: 100%;
+    border:1px solid #eee;
+}
+.tariffsPie{
+    position: absolute;
+    left: 24%;
+    width: 25%;
+    height: 50%;
+}
+.tariffsBar2{
+    position: absolute;
+    right: 0;
+    width: 49%;
+    height: 100%;
+    border:1px solid #eee;
+}
+.tariffsPie2{
+    position: absolute;
+    right: 0;
+    width: 25%;
+    height: 50%;
+}
+.tariffsBottom{
+    margin-top:1%;
+    position: relative;
+    width: 100%;
+    height: 49%;
+}
+.tariffsScatter{
+    position: absolute;
+    width: 49%;
+    height: 100%;
+    border:1px solid #eee;
+}
+.tariffsLine{
+    position: absolute;
+    right: 0;
+    width: 49%;
+    height: 100%;
+    border:1px solid #eee;
+}
+
+/*渠道单联程结构分析*/
+.interLineLeft{
+    margin-right:1%;
+    position: absolute;
+    left:0;
+    width: 25%;
+    height: 100%;
+    border:1px solid #eee;
+}
+.interLineRight{
+    position: absolute;
+    right:0;
+    width: 74%;
+    height: 100%;
+    border:1px solid #eee;
+}
+.interLineChina{
+    width: 100%;
+    height: 100%;
+}
+.interLineBar{
+    position: absolute;
+    right:20px;
+    bottom:20px;
+    width: 30%;
+    height: 40%;
+}
+
+/*舱位结构分析*/
+.spaceBar{
+    margin-right:1%;
+    position: absolute;
+    left:0;
+    width: 67%;
+    height: 100%;
+    border:1px solid #eee;
+}
+.spacePie{
+    position: absolute;
+    right:0;
+    width: 32%;
+    height: 100%;
+    border:1px solid #eee;
+}
+/*旅客*/

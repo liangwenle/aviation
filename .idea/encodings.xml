@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/css/index.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/css/right.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/channel.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/interLine.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/right.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/space.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/tariffs.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/travelers.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/json/home.json" charset="UTF-8" />
+  </component>
+</project>

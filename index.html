@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/datePicker.css"/>
+</head>
+<body>
+<div class="main">
+    <div class="mainTop">
+        <div class="mainTop_left">
+            <p>四川航空演示平台</p>
+        </div>
+        <!--日期筛选-->
+        <div class="floatRight pageDate">
+            <form id="myform" style="display: inline-block">
+                <input type="text" id="datePicker" class="date_picker" placeholder="销售开始日期"/>
+                <input type="text" id="datePicker2" class="date_picker" placeholder="销售结束日期"/>
+                <input type="text" id="datePicker3" class="date_picker" placeholder="航运开始日期"/>
+                <input type="text" id="datePicker4" class="date_picker" placeholder="航运结束日期"/>
+            </form>
+            <input type="button" id="dateClear" class="date_picker dateClear" value="清 空"/>
+            <input type="submit" id="dateSubmit" class="date_picker dateClear" value="提 交"/>
+        </div>
+    </div>
+    <div class="mainBottom">
+        <div style="width:12%;" class="floatLeft iframeLeft">
+            <div class="leftNav">
+                <ul class="nav">
+                    <li>
+                        <a class="left00 default" target="right" href="paging/right.html">首 页</a>
+                    </li>
+                    <li>
+                        <a target="right" href="paging/channel.html" class="left1">渠道结构分析</a>
+                        <!--<ul class="navTwo">
+                            <li class="twoText">
+                                <a>二级列表1</a>
+                                <span class="floatRight rotation">></span>
+                                <div class="navThree" style="display: none">
+                                    <a target="right" href="paging/right.html">三级列表1</a>
+                                    <a href="###">三级列表</a>
+                                    <a href="###">三级列表</a>
+                                    <a href="###">三级列表</a>
+                                </div>
+                            </li>
+                            <li class="twoText">
+                                <a>二级列表2</a>
+                                <span class="floatRight rotation">></span>
+                                <div class="navThree" style="display: none">
+                                    <a href="###">三级列表</a>
+                                    <a href="###">三级列表</a>
+                                    <a href="###">三级列表</a>
+                                    <a href="###">三级列表</a>
+                                </div>
+                            </li>
+                            <li class="twoText">
+                                <a target="right" href="paging/right1.html">二级列表3</a>
+                            </li>
+                        </ul>-->
+                    </li>
+                    <li><a target="right" href="paging/tariffs.html">渠道运价结构分析</a></li>
+                    <li><a target="right" href="paging/interLine.html">渠道单联程结构分析</a></li>
+                    <li><a target="right" href="paging/space.html">舱位结构分析</a></li>
+                    <li><a target="right" href="paging/travelers.html">旅客结构分析</a></li>
+                    <div id="lanPos"></div>
+                </ul>
+            </div>
+        </div>
+        <div style="width:88%;" class="floatLeft iframeRight">
+            <iframe id="right" name="right" src="paging/right.html" width="100%" height="100%" frameborder="false"></iframe>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/jquery.date_input.pack.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
