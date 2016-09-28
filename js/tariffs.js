@@ -1,7 +1,8 @@
 $(function() {
     $.getJSON('../json/home.json')
         .then(function (res) {
-            var provinces = res.provinceIevel;
+            var provinces = res.selectOne;
+            var allDate;
 
             //三级下拉菜单
             var options = provinces.map(function (item, index) {
@@ -19,9 +20,9 @@ $(function() {
                     return;
                 }
 
-                var departments = provinces[index]['department'];
+                var provinceIevel = provinces[index]['provinceIevel'];
 
-                var option_dep = departments.map(function (item, index) {
+                var option_dep = provinceIevel.map(function (item, index) {
                     return '<option value="' + item.value + '" data-index="' + index + '">' + item.name + '</option>';
                 })
                 $('.twoSelect').html('<option data-index="-1">--请选择--</option>' + option_dep);
@@ -36,8 +37,8 @@ $(function() {
                     return;
                 }
 
-                var area = provinces[p_index]['department'][index]['sub'];
-                if (!provinces[p_index]['department'][index]['sub']) {
+                var area = provinces[p_index]['provinceIevel'][index]['department'];
+                if (!provinces[p_index]['provinceIevel'][index]['department']) {
                     $('.threeSelect').css('display', 'none');
                     return;
                 } else {
@@ -48,35 +49,6 @@ $(function() {
                     $('.threeSelect').html('<option data-index="-1">--请选择--</option>' + area_dep_option);
                 }
 
-            })
-
-            //菜单筛选清空按钮
-            $('#dateClear2').on('click',function(){
-                $('.oneSelect > option:first').prop('selected','selected');
-                 $('.twoSelect > option:first').attr('selected','selected');
-                 if($('.threeSelect').css('display') !== 'none'){
-                 $('.threeSelect > option:first').attr('selected','selected');
-                 }
-            })
-
-            function getQryStr(param) {
-                var queryArr = location.search.slice(1).split("&");
-                var tempArr,item,queryObject = {};
-
-                for (var i = 0 ; i < queryArr.length; i++) {
-                    item = queryArr[i];
-                    if (item.indexOf("=") !== -1) {
-                        tempArr = item.split("=");
-                        queryObject[tempArr[0]] = tempArr[1];
-                    }
-                }
-                console.log(queryObject);
-                return queryObject[param] ? queryObject[param] : "";
-            }
-
-            //页面层级筛选提交
-            $('#dateSubmit2').on('click',function(){
-                getQryStr();
             })
 
             //运价层叠柱状图
@@ -111,7 +83,7 @@ $(function() {
                         axisLabel:{
                             interval:0,
                         },
-                        data : ['华东片区','云贵渝片区','北方片区','成都片区','西北片区','中南片区','中原片区']
+                        data : res.tariffsData[0].area.map(function(item){return item.name})
                     }
                 ],
                 yAxis : [
@@ -124,13 +96,17 @@ $(function() {
                         name:'散客',
                         type:'bar',
                         stack: '广告',
-                        data:[1120, 132, 101, 134, 390, 230, 210]
+                        data:res.tariffsData[0].area.map(function(item){
+                            return item.tariff[0].value;
+                        })
                     },
                     {
                         name:'团体',
                         type:'bar',
                         stack: '广告',
-                        data:[220, 182, 191, 234, 290, 130, 110]
+                        data:res.tariffsData[0].area.map(function(item){
+                            return item.tariff[1].value;
+                        })
                     }
                 ]
             };
@@ -149,36 +125,19 @@ $(function() {
                         type: 'pie',
                         radius : '50%',
                         center: ['50%', '43%'],
-                        /*itemStyle:{
-                            normal:{
-                                label:{
-                                    formatter:'{b}:{d}%'
-                                },
-                            },
-                        },*/
                         labelLine:{
                             normal:{
                                 length:8,
                                 length2:5,
                             },
                         },
-                        data:[
-                            {value:335, name:'明折明扣'},
-                            {value:310, name:'折上折'},
-                            {value:234, name:'其他'},
-                            {value:35, name:'L'},
-                            {value:48, name:'LA'},
-                            {value:48, name:'SA'},
-                            {value:48, name:'SAJZ'},
-                            {value:48, name:'Y'},
-                            {value:48, name:'YCH'},
-                        ]
+                        data:res.tariffsData[0].tariffPie
                     }
                 ]
             };
             tariffsPie.setOption(tariffsPieOption);
 
-            //销售层叠柱状图
+            //张数层叠柱状图
             var tariffsBar2 = echarts.init(document.getElementById('tariffsBar2'));
             var tariffsBar2Option = {
                 title : {
@@ -210,7 +169,7 @@ $(function() {
                         axisLabel:{
                             interval:0,
                         },
-                        data :['华东片区','云贵渝片区','北方片区','成都片区','西北片区','中南片区','中原片区']
+                        data :res.tariffsData[0].area.map(function(item){return item.name})
                     }
                 ],
                 yAxis : [
@@ -223,19 +182,23 @@ $(function() {
                         name:'散客',
                         type:'bar',
                         stack: '广告',
-                        data:[1120, 132, 101, 134, 390, 230, 210]
+                        data:res.tariffsData[0].area.map(function(item){
+                            return item.numberOfSheets[0].value;
+                        })
                     },
                     {
                         name:'团体',
                         type:'bar',
                         stack: '广告',
-                        data:[220, 182, 191, 234, 290, 130, 110]
+                        data:res.tariffsData[0].area.map(function(item){
+                            return item.numberOfSheets[1].value;
+                        })
                     }
                 ]
             };
             tariffsBar2.setOption(tariffsBar2Option);
 
-            //销售饼图
+            //张数饼图
             var tariffsPie2 = echarts.init(document.getElementById('tariffsPie2'));
             var tariffsPie2Option = {
                 tooltip : {
@@ -248,36 +211,19 @@ $(function() {
                         type: 'pie',
                         radius : '50%',
                         center: ['50%', '43%'],
-                        /*itemStyle:{
-                         normal:{
-                         label:{
-                         formatter:'{b}:{d}%'
-                         },
-                         },
-                         },*/
                         labelLine:{
                             normal:{
                                 length:8,
                                 length2:5,
                             },
                         },
-                        data:[
-                            {value:335, name:'明折明扣'},
-                            {value:310, name:'折上折'},
-                            {value:234, name:'其他'},
-                            {value:35, name:'L'},
-                            {value:48, name:'LA'},
-                            {value:48, name:'SA'},
-                            {value:48, name:'SAJZ'},
-                            {value:48, name:'Y'},
-                            {value:48, name:'YCH'},
-                        ]
+                        data:res.tariffsData[0].numberPie
                     }
                 ]
             };
             tariffsPie2.setOption(tariffsPie2Option);
 
-            //气泡图
+            //散客团体气泡图
             var tariffsScatter = echarts.init(document.getElementById('tariffsScatter'));
             var tariffsScatterOption = {
                 title: {
@@ -290,7 +236,7 @@ $(function() {
                 xAxis: [
                     {
                         type : 'category',
-                        data : ['航段一','航段二','航段三','航段四','航段五','航段六','航段七']
+                        data :res.tariffsData[0].area.map(function(item){return item.name})
                     }
                 ],
                 yAxis: [
@@ -307,7 +253,9 @@ $(function() {
                 },
                 series: [{
                     name: '散客',
-                    data: [120, 132, 101, 134, 90, 230, 210],
+                    data:res.tariffsData[0].area.map(function(item){
+                        return item.fitGroup[0].value;
+                    }),
                     type: 'scatter',
                     symbolSize:20,
                     label: {
@@ -336,11 +284,10 @@ $(function() {
                 },
                 {
                     name: '团体',
-                    data: [220, 182, 191, 234, 290, 330, 310],
+                    data: res.tariffsData[0].area.map(function(item){
+                        return item.fitGroup[1].value;
+                    }),
                     type: 'scatter',
-                    /*symbolSize: function (data) {
-                     return Math.sqrt(data[2]) / 5e2;
-                     },*/
                     symbolSize:20,
                     label: {
                         emphasis: {
@@ -369,7 +316,7 @@ $(function() {
             };
             tariffsScatter.setOption(tariffsScatterOption);
 
-            //气泡图
+            //明折明扣气泡图
                 var tariffsScatter2 = echarts.init(document.getElementById('tariffsScatter2'));
                 var tariffsScatterOption2 = {
                     title: {
@@ -382,7 +329,7 @@ $(function() {
                     xAxis: [
                         {
                             type : 'category',
-                            data : ['航段一','航段二','航段三','航段四','航段五','航段六','航段七']
+                            data :res.tariffsData[0].area.map(function(item){return item.name})
                         }
                     ],
                     yAxis: [
@@ -400,11 +347,10 @@ $(function() {
                     series: [
                         {
                             name: '明折明扣',
-                            data: [620, 732, 701, 734, 1090, 1130, 1120],
+                            data:res.tariffsData[0].area.map(function(item){
+                                return item.discounted[0].value;
+                            }),
                             type: 'scatter',
-                            /*symbolSize: function (data) {
-                             return Math.sqrt(data[2]) / 5e2;
-                             },*/
                             symbolSize:20,
                             label: {
                                 emphasis: {
@@ -432,7 +378,9 @@ $(function() {
                         },
                         {
                             name: '折上折',
-                            data: [60, 72, 71, 74, 190, 130, 110],
+                            data:res.tariffsData[0].area.map(function(item){
+                                return item.discounted[1].value;
+                            }),
                             type: 'scatter',
                             symbolSize:20,
                             label: {
@@ -461,5 +409,269 @@ $(function() {
                         }]
                 };
                 tariffsScatter2.setOption(tariffsScatterOption2);
+
+
+            //页面接收数据刷新
+            function getQryStr(param) {
+                var queryArr = window.location.search.slice(1).split("&");
+                var tempArr, item, queryObject = {};
+
+                for (var i = 0; i < queryArr.length; i++) {
+                    if (queryArr[0] == "") {
+                        return
+                    };
+                    //判断是否筛选了时间
+                    item = queryArr[i];
+                    if (item.indexOf("=") !== -1) {
+                        tempArr = item.split("=");
+                        queryObject[tempArr[0]] = tempArr[1];
+                    }
+                }
+                for (var key in queryObject) {
+                    if (queryObject[key] == 'NaN') {  //删除没有选择的时间
+                        delete queryObject[key];
+                    }
+                }
+                //全局时间筛选
+                function allselectDate() {
+                    for (var cut in queryObject) {
+                        var cutValue = queryObject[cut];
+                        if (cut == '0' || cut == '1') {   //销售时间
+                            var allDataXS = res.selectDate;
+                            for (var i = 0; i < allDataXS.length; i++) {
+                                var objXS = allDataXS[i].date;
+                                var xsDate = new Date(objXS).getTime() / 1000;
+                                if (cutValue == xsDate) {
+                                    if (cut == '0') {
+                                        var xsStartRQ = allDataXS[i];
+                                    } else {
+                                        var xsEndRQ = allDataXS[i];
+                                    }
+                                    break;
+                                }
+                            }
+                        } else {      //航运时间
+                            var allDataHD = res.selectDate2;
+                            for (var i = 0; i < allDataHD.length; i++) {
+                                var objHD = allDataHD[i].date;
+                                var hdDate = new Date(objHD).getTime() / 1000;
+                                if (cutValue == hdDate) {
+                                    if (cut == '2') {
+                                        var hdStartRQ = allDataHD[i];
+                                    } else {
+                                        var hdEndRQ = allDataHD[i];
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    console.log(xsStartRQ, xsEndRQ, hdStartRQ, hdEndRQ)
+                    return [xsStartRQ, xsEndRQ, hdStartRQ, hdEndRQ];
+                }
+                var receive = allselectDate()
+                return receive;
+            }
+            allDate = getQryStr();
+            console.log(allDate);
+
+            //菜单筛选清空按钮
+            $('#dateClear2').on('click', function () {
+                $('.oneSelect > option:first').prop('selected', 'selected');
+                $('.twoSelect > option:first').attr('selected', 'selected');
+                if ($('.threeSelect').css('display') !== 'none') {
+                    $('.threeSelect > option:first').attr('selected', 'selected');
+                }
+            })
+
+            //分页面按钮点击提交
+            $('#dateSubmit2').on('click',function(){
+                var indexData = $('.oneSelect').find('option:selected').attr('data-index')
+                if(indexData == '-1'){alert('请先选择区域!!!')};
+                pageDate()
+            })
+
+            //柱状图点击方法
+            function travelersBar(data){
+                tariffsPieOption.series[0].data = data.areatariffPie;
+                tariffsPie.setOption(tariffsPieOption);
+            }
+            function travelersBar2(data){
+                tariffsPie2Option.series[0].data = data.areaNumberPie;
+                tariffsPie2.setOption(tariffsPie2Option);
+            }
+            //运价柱状图点击事件
+            tariffsBar.on('click',function(param){
+                var dataIndex = param.dataIndex;
+                var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
+                if (indexOne == '0') {
+                    var data = res.tariffsData2[0].area[dataIndex]
+                    travelersBar(data)
+                } else {
+                    var data = res.tariffsData[0].area[dataIndex]
+                    travelersBar(data)
+                }
+            })
+            //张数柱状图点击事件
+            tariffsBar2.on('click',function(param){
+                var dataIndex = param.dataIndex;
+                var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
+                if (indexOne == '0') {
+                    var data = res.tariffsData2[0].area[dataIndex]
+                    travelersBar2(data)
+                } else {
+                    var data = res.tariffsData[0].area[dataIndex]
+                    travelersBar2(data)
+                }
+            })
+
+            //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
+            //通用方法给分页面按钮
+            function pageDate(){
+                if (allDate == undefined){return};
+                if (allDate[3] !== undefined) {
+                    //判断页面是否有局部层级筛选
+                    var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
+                    var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
+                    var indexThree = $('.threeSelect').find('option:selected').attr('data-index');
+                    if (indexOne == '0') { //成都片区
+                        //运价柱状图
+                        tariffsBarOption.grid.bottom = '6%';
+                        tariffsBarOption.dataZoom = [
+                            {
+                                type: 'inside',
+                                startValue: 'CTU-PEK',
+                                endValue: 'CTU-KMG',
+                                filterMode: 'filter'
+                            },
+                            {
+                                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                                realtime: false,
+                                height:20,
+                                bottom:5,
+                                handleStyle: {
+                                    color: '#fff',
+                                    shadowBlur: 3,
+                                    shadowColor: 'rgba(0, 0, 0, 0.6)',
+                                    shadowOffsetX: 2,
+                                    shadowOffsetY: 2
+                                }
+                            }];
+                        tariffsBarOption.xAxis[0].data =res.tariffsData2[0].area.map(function(item){return item.name})
+                        tariffsBarOption.series[0].data = res.tariffsData2[0].area.map(function(item){
+                            return item.tariff[0].value;
+                        });
+                        tariffsBarOption.series[1].data = res.tariffsData2[0].area.map(function(item){
+                            return item.tariff[1].value;
+                        })
+                        tariffsBar.setOption(tariffsBarOption);
+
+                        //运价饼图
+                        tariffsPieOption.series[0].data = res.tariffsData2[0].tariffPie
+                        tariffsPie.setOption(tariffsPieOption);
+
+                        //张数柱状图
+                        tariffsBar2Option.grid.bottom = '6%';
+                        tariffsBar2Option.dataZoom = [
+                            {
+                                type: 'inside',
+                                startValue: 'CTU-PEK',
+                                endValue: 'CTU-KMG',
+                                filterMode: 'filter'
+                            },
+                            {
+                                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                                realtime: false,
+                                height:20,
+                                bottom:5,
+                                handleStyle: {
+                                    color: '#fff',
+                                    shadowBlur: 3,
+                                    shadowColor: 'rgba(0, 0, 0, 0.6)',
+                                    shadowOffsetX: 2,
+                                    shadowOffsetY: 2
+                                }
+                            }];
+                        tariffsBar2Option.xAxis[0].data =res.tariffsData2[0].area.map(function(item){return item.name})
+                        tariffsBar2Option.series[0].data = res.tariffsData2[0].area.map(function(item){
+                            return item.numberOfSheets[0].value;
+                        });
+                        tariffsBar2Option.series[1].data = res.tariffsData2[0].area.map(function(item){
+                            return item.numberOfSheets[1].value;
+                        })
+                        tariffsBar2.setOption(tariffsBar2Option);
+
+                        //张数饼图
+                        tariffsPie2Option.series[0].data = res.tariffsData2[0].numberPie
+                        tariffsPie2.setOption(tariffsPie2Option);
+
+                        //散客团体气泡图
+                        tariffsScatterOption.grid.bottom = '6%';
+                        tariffsScatterOption.dataZoom = [
+                            {
+                                type: 'inside',
+                                startValue: 'CTU-PEK',
+                                endValue: 'CTU-KMG',
+                                filterMode: 'filter'
+                            },
+                            {
+                                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                                realtime: false,
+                                height:20,
+                                bottom:5,
+                                handleStyle: {
+                                    color: '#fff',
+                                    shadowBlur: 3,
+                                    shadowColor: 'rgba(0, 0, 0, 0.6)',
+                                    shadowOffsetX: 2,
+                                    shadowOffsetY: 2
+                                }
+                            }];
+                        tariffsScatterOption.xAxis[0].data =res.tariffsData2[0].area.map(function(item){return item.name})
+                        tariffsScatterOption.series[0].data = res.tariffsData2[0].area.map(function(item){
+                            return item.fitGroup[0].value;
+                        });
+                        tariffsScatterOption.series[1].data = res.tariffsData2[0].area.map(function(item){
+                            return item.fitGroup[1].value;
+                        }),
+                        tariffsScatter.setOption(tariffsScatterOption);
+
+                        //明折明扣气泡图
+                        tariffsScatterOption2.grid.bottom = '6%';
+                        tariffsScatterOption2.dataZoom = [
+                            {
+                                type: 'inside',
+                                startValue: 'CTU-PEK',
+                                endValue: 'CTU-KMG',
+                                filterMode: 'filter'
+                            },
+                            {
+                                handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                                realtime: false,
+                                height:20,
+                                bottom:5,
+                                handleStyle: {
+                                    color: '#fff',
+                                    shadowBlur: 3,
+                                    shadowColor: 'rgba(0, 0, 0, 0.6)',
+                                    shadowOffsetX: 2,
+                                    shadowOffsetY: 2
+                                }
+                            }];
+                        tariffsScatterOption2.xAxis[0].data =res.tariffsData2[0].area.map(function(item){return item.name})
+                        tariffsScatterOption2.series[0].data = res.tariffsData2[0].area.map(function(item){
+                            return item.discounted[0].value;
+                        });
+                        tariffsScatterOption2.series[1].data = res.tariffsData2[0].area.map(function(item){
+                            return item.discounted[1].value;
+                        }),
+                        tariffsScatter2.setOption(tariffsScatterOption2);
+                    } else if(indexThree == '-1'){
+                        //默认页面数据
+                    };
+                }
+            }
+
+            pageDate()
         })
 })

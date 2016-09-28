@@ -1,8 +1,9 @@
 $(function () {
     $.getJSON('../json/home.json')
         .then(function (res) {
-            var provinces = res.provinceIevel;
-            var allDate  //时间筛选结果
+            var provinces = res.selectOne;
+            var allDate;
+
             //三级下拉菜单
             var options = provinces.map(function (item, index) {
                 return '<option value="' + item.value + '" data-index="' + index + '">' + item.name + '</option>';
@@ -19,9 +20,9 @@ $(function () {
                     return;
                 }
 
-                var departments = provinces[index]['department'];
+                var provinceIevel = provinces[index]['provinceIevel'];
 
-                var option_dep = departments.map(function (item, index) {
+                var option_dep = provinceIevel.map(function (item, index) {
                     return '<option value="' + item.value + '" data-index="' + index + '">' + item.name + '</option>';
                 })
                 $('.twoSelect').html('<option data-index="-1">--请选择--</option>' + option_dep);
@@ -36,8 +37,8 @@ $(function () {
                     return;
                 }
 
-                var area = provinces[p_index]['department'][index]['sub'];
-                if (!provinces[p_index]['department'][index]['sub']) {
+                var area = provinces[p_index]['provinceIevel'][index]['department'];
+                if (!provinces[p_index]['provinceIevel'][index]['department']) {
                     $('.threeSelect').css('display', 'none');
                     return;
                 } else {
@@ -50,34 +51,6 @@ $(function () {
 
             })
 
-            //菜单筛选清空按钮
-            $('#dateClear2').on('click', function () {
-                $('.oneSelect > option:first').prop('selected', 'selected');
-                $('.twoSelect > option:first').attr('selected', 'selected');
-                if ($('.threeSelect').css('display') !== 'none') {
-                    $('.threeSelect > option:first').attr('selected', 'selected');
-                }
-            })
-
-            function getQryStr(param) {
-                var queryArr = location.search.slice(1).split("&");
-                var tempArr, item, queryObject = {};
-
-                for (var i = 0; i < queryArr.length; i++) {
-                    item = queryArr[i];
-                    if (item.indexOf("=") !== -1) {
-                        tempArr = item.split("=");
-                        queryObject[tempArr[0]] = tempArr[1];
-                    }
-                }
-                console.log(queryObject);
-                return queryObject[param] ? queryObject[param] : "";
-            }
-
-            //页面层级筛选提交
-            $('#dateSubmit2').on('click', function () {
-                getQryStr();
-            })
 
             //一级饼图
             var channel_onePie = echarts.init(document.getElementById('channel_onePie'));
@@ -318,18 +291,6 @@ $(function () {
             };
             channel_threeBottomPie.setOption(threeBottomPie_option);
 
-            //channel_twoBottomPie点击事件
-            channel_twoBottomPie.on('click', function (param) {
-                var data_index = param.dataIndex;
-                if (data_index == 0) {
-                    threeBottomPie_option.series[0].data =res.structure[0].directChannel[0].website;
-                } else if (data_index == 3) {
-                    threeBottomPie_option.series[0].data =res.structure[0].directChannel[3].website;
-                }else{
-                    return;
-                }
-                channel_threeBottomPie.setOption(threeBottomPie_option);
-            })
 
             //页面接收数据刷新
             function getQryStr(param) {
@@ -395,30 +356,83 @@ $(function () {
             allDate = getQryStr();
             console.log(allDate);
 
+            //菜单筛选清空按钮
+            $('#dateClear2').on('click', function () {
+                $('.oneSelect > option:first').prop('selected', 'selected');
+                $('.twoSelect > option:first').attr('selected', 'selected');
+                if ($('.threeSelect').css('display') !== 'none') {
+                    $('.threeSelect > option:first').attr('selected', 'selected');
+                }
+            })
+
+            //分页面按钮点击提交
+            $('#dateSubmit2').on('click',function(){
+                var indexData = $('.oneSelect').find('option:selected').attr('data-index')
+                if(indexData == '-1'){alert('请先选择区域!!!')};
+                pageDate()
+            })
+
+            //饼图点击方法
+            function travelersBar(index,data){
+                if (index == 0) {
+                    threeBottomPie_option.series[0].data =data.website;
+                } else if (index == 3) {
+                    threeBottomPie_option.series[0].data =data.website;
+                }else{
+                    return;
+                }
+                channel_threeBottomPie.setOption(threeBottomPie_option);
+            }
+            //channel_twoBottomPie点击事件
+            channel_twoBottomPie.on('click', function (param) {
+                var dataIndex = param.dataIndex;
+                var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
+                if(indexOne == '0'){
+                    var data = res.structure2[0].directChannel[dataIndex]
+                    travelersBar(dataIndex,data);
+                }else{
+                    var data = res.structure[0].directChannel[dataIndex]
+                    travelersBar(dataIndex,data);
+                }
+            })
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
-
-            if (allDate == undefined){return};
-            if (allDate[3] !== undefined) {
-                function pageDate(){
+            function pageDate(){
+                if (allDate == undefined){return};
+                if (allDate[3] !== undefined) {
                     //判断页面是否有局部层级筛选
-                    var indexData = $('.oneSelect').find('option:selected').attr('data-index')
-                    if (indexData == '3') { //成都片区
-                        alert('选择成都片区')
-                    } else if(indexData == '-1'){
-                        alert('没有成都片区')
+                    var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
+                    var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
+                    var indexThree = $('.threeSelect').find('option:selected').attr('data-index');
+                    if (indexOne == '0') { //成都片区
+                        //一级饼图
+                        $('.totalRevenue').html(res.structure2[0].totalRevenue + '元');
+                        onePie_option.series[0].data = res.structure2[0].directDistribution;
+                        //二级分销
+                        $('.distribution').html(res.structure2[0].distribution + '元');
+                        twoTopPie_option.series[0].data = res.structure2[0].local_offSite;
+                        //三级分销
+                        threeTopPie_option.series[0].data = res.structure2[0].agent
+                        //二级直销
+                        $('.direct').html(res.structure2[0].direct + '元');
+                        twoBottomPie_option.series[0].data = res.structure2[0].directChannel
+                        //三级直销
+                        threeBottomPie_option.series[0].data = res.structure2[0].directChannel[0].website
+
+                        channel_onePie.setOption(onePie_option);
+                        channel_twoTopPie.setOption(twoTopPie_option);
+                        channel_threeTopPie.setOption(threeTopPie_option);
+                        channel_twoBottomPie.setOption(twoBottomPie_option);
+                        channel_threeBottomPie.setOption(threeBottomPie_option);
+
+                    } else if(indexThree == '-1'){
+                        //默认页面数据
                     };
                 }
             }
 
             pageDate()
 
-            //分页面按钮点击提交
-            $('#dateSubmit2').on('click',function(){
-                var indexData = $('.oneSelect').find('option:selected').attr('data-index')
-                if(indexData == '-1'){return};
-                pageDate()
-            })
 
         })
 })

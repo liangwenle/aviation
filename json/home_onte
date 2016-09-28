@@ -11,6 +11,7 @@ allDate2:8.7 - 8.21 初始化默认未来销售分析
 
 selectDate: 8.1 - 8.7 选择时间段历史销售分析
 selectDate2:8.7 - 8.21 选择时间段未来销售分析
+selectOne:分页面层级筛选
 provinceIevel:默认七大地区
 provinceIevel:[
     {
@@ -38,6 +39,19 @@ provinceIevel2:选择时间段七大地区
 //渠道结构分析页面
 structure:结构默认数据
 totalRevenue:总收入
+direct:直销总收入
+distribution:分销总收入
+    directDistribution：直销分销
+    分销
+        local_offSite:本地异地
+        agent:代理人
+            platform:c平台下钻
+    直销
+    directChannel:直销渠道
+        website:三级饼图
+
+structure:选择时间和营业厅数据
+totalRevenue:总收入
 distribution:分销总收入
 direct:直销总收入
     directDistribution：直销分销
@@ -47,3 +61,40 @@ direct:直销总收入
     直销
     directChannel:直销渠道
         website:三级饼图
+
+运价结构分析
+tariffsData:默认数据
+    area:地区
+        tariff:运价
+        numberOfSheets:张数
+        areatariffPie:地区运价饼图数据
+        areaNumberPie:地区张数饼图数据
+        fitGroup:散客团体气泡图
+        discounted:明折明扣气泡图
+    tariffPie:运价总数饼图
+    numberPie:张数总数饼图
+tariffsData2:筛选数据
+
+渠道单联程结构分析
+interLineData:默认数据
+    interLinePie:饼图数据
+        process:联程下钻数据
+    interLineChina:地图数据
+        LSData:拉萨数据
+    goBack:去程回程
+
+
+舱位结构页面
+spaceData:默认数据
+spaceData2:筛选数据
+
+//旅客结构页面
+travelersData:默认数据
+    total:默认总数
+    allSales:默认销售额
+    numberOfSheets:默认张数
+
+travelersData2:选择营业部数据
+    total:选择营业部总数
+    allSales:选择营业部销售额
+    numberOfSheets:选择营业部张数

@@ -215,14 +215,14 @@ html,body{
     margin-right:1%;
     position: absolute;
     left:0;
-    width: 67%;
+    width: 60%;
     height: 100%;
     border:1px solid #eee;
 }
 .spacePie{
     position: absolute;
     right:0;
-    width: 32%;
+    width: 39%;
     height: 100%;
     border:1px solid #eee;
 }
