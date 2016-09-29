@@ -55,7 +55,7 @@ $(function() {
             var spaceBar = echarts.init(document.getElementById('spaceBar'));
             var spaceBarOption = {
                 title : {
-                    text: '运价收入',
+                    text: '舱位销售收入',
                     left:'left',
                     top:10
                 },
@@ -63,15 +63,16 @@ $(function() {
                     trigger: 'axis',
                     axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                         type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
+                    },
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）<br />{a2}: {c2}'+'（万）<br />{a3}: {c3}'+'（万）<br />{a4}: {c4}'+'（万）<br />{a5}: {c5}'+'（万）<br />{a6}: {c6}'+'（万）<br />{a7}: {c7}'+'（万）'
                 },
                 legend: {
-                    left:200,
+                    left:150,
                     top:13,
                     data:['头等舱','头等舱及其子舱','替代舱位','经济舱位','国际中转舱位','免票舱位','国际头等舱','其他舱位']
                 },
                 grid: {
-                    top:'15%',
+                    top:'22%',
                     left: '3%',
                     right: '4%',
                     bottom: '3%',
@@ -97,7 +98,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function(item){
-                            return item.areaSales[0].value;
+                            return item.areaSales[0].value / 10000;
                         })
                     },
                     {
@@ -105,7 +106,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function(item){
-                            return item.areaSales[1].value;
+                            return item.areaSales[1].value / 10000;
                         })
                     },
                     {
@@ -113,7 +114,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function(item){
-                            return item.areaSales[2].value;
+                            return item.areaSales[2].value / 10000;
                         })
                     },
                     {
@@ -121,7 +122,7 @@ $(function() {
                         type: 'bar',
                         stack: '广告',
                         data: res.spaceData[1].travelers.map(function (item) {
-                            return item.areaSales[3].value;
+                            return item.areaSales[3].value / 10000;
                         })
                     },
                     {
@@ -129,7 +130,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function (item) {
-                            return item.areaSales[4].value;
+                            return item.areaSales[4].value / 10000;
                         })
                     },
                     {
@@ -137,7 +138,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function (item) {
-                            return item.areaSales[5].value;
+                            return item.areaSales[5].value / 10000;
                         })
                     },
                     {
@@ -145,7 +146,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function (item) {
-                            return item.areaSales[6].value;
+                            return item.areaSales[6].value / 10000;
                         })
                     },
                     {
@@ -153,7 +154,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function (item) {
-                            return item.areaSales[7].value;
+                            return item.areaSales[7].value / 10000;
                         })
                     },
                 ]
@@ -164,14 +165,13 @@ $(function() {
             var spacePie = echarts.init(document.getElementById('spacePie'));
             var spacePieOption = {
                 title : {
-                    text: '舱位张数',
-                    subtext: '南丁格尔玫瑰图',
+                    text: '舱位销售收入',
                     x:'center',
                     top:10
                 },
                 tooltip : {
                     trigger: 'item',
-                    formatter: "{b} : {c} ({d}%)"
+                    formatter: "{b} : {c}万 ({d}%)"
                 },
                 legend: {
                     x : 'center',
@@ -183,11 +183,21 @@ $(function() {
                     {
                         name:'面积模式',
                         type:'pie',
-                        radius : [30, 80],
+                        radius : ['30%','56%'],
                         center : ['50%', '50%'],
                         roseType : 'area',
                         startAngle: 130,
-                        data:res.spaceData[0].total
+                        itemStyle:{
+                            normal:{
+                                label:{
+                                    formatter:'{b}:{d}%'
+                                },
+                            },
+                        },
+                        data:res.spaceData[0].total.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
@@ -275,7 +285,10 @@ $(function() {
 
             //柱状图点击方法
             function travelersBar(data){
-                spacePieOption.series[0].data = data.numberOfSheets;
+                spacePieOption.series[0].data = data.numberOfSheets.map(function(item){
+                    var value = item.value / 10000
+                    return {name:item.name,value:value}
+                });
                 spacePie = echarts.init(document.getElementById('spacePie'));
                 spacePie.setOption(spacePieOption);
             }
@@ -294,13 +307,13 @@ $(function() {
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                if (allDate == undefined){return};
-                if (allDate[3] !== undefined) {
+                /*if (allDate == undefined){return};
+                if (allDate[3] !== undefined) {*/
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
                     var indexThree = $('.threeSelect').find('option:selected').attr('data-index');
-                    if (indexOne == '0') { //成都片区
+                    if (indexOne == '0' && indexTwo == '3' && indexThree == '0') { //成都片区
                         //柱状图
                         var spaceBarData = res.spaceData2[1].travelers
                         spaceBarOption.grid.bottom = '6%';
@@ -326,40 +339,43 @@ $(function() {
                             }]
                         spaceBarOption.xAxis[0].data = spaceBarData.map(function(item){return item.name})
                         spaceBarOption.series[0].data = spaceBarData.map(function(item){
-                            return item.areaSales[0].value;
+                            return item.areaSales[0].value / 10000;
                         })
                         spaceBarOption.series[1].data = spaceBarData.map(function(item){
-                            return item.areaSales[1].value;
+                            return item.areaSales[1].value / 10000;
                         })
                         spaceBarOption.series[2].data = spaceBarData.map(function(item){
-                            return item.areaSales[2].value;
+                            return item.areaSales[2].value / 10000;
                         })
                         spaceBarOption.series[3].data = spaceBarData.map(function(item){
-                            return item.areaSales[3].value;
+                            return item.areaSales[3].value / 10000;
                         })
                         spaceBarOption.series[4].data = spaceBarData.map(function(item){
-                            return item.areaSales[4].value;
+                            return item.areaSales[4].value / 10000;
                         })
                         spaceBarOption.series[5].data = spaceBarData.map(function(item){
-                            return item.areaSales[5].value;
+                            return item.areaSales[5].value / 10000;
                         })
                         spaceBarOption.series[6].data = spaceBarData.map(function(item){
-                            return item.areaSales[6].value;
+                            return item.areaSales[6].value / 10000;
                         })
                         spaceBarOption.series[7].data = spaceBarData.map(function(item){
-                            return item.areaSales[7].value;
+                            return item.areaSales[7].value / 10000;
                         })
                         spaceBar.setOption(spaceBarOption);
 
                         //南丁格尔玫瑰图
-                        spacePieOption.series[0].data = res.spaceData2[0].total
+                        spacePieOption.series[0].data = res.spaceData2[0].total.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                         spacePie = echarts.init(document.getElementById('spacePie'));
                         spacePie.setOption(spacePieOption);
                     } else if(indexThree == '-1'){
                         //默认页面数据
                     };
                 }
-            }
+            /*}*/
 
             pageDate()
 

@@ -61,28 +61,33 @@ $(document).ready(function () {
 
             //页面初始化
             //KPI
-            $('.sales').html(res.allSales + '万');
-            $('.proxy').html(res.allProxy + '万');
+            $('.sales').html(res.allSales / 10000 + '万');
+            $('.proxy').html(res.allProxy / 10000 + '万');
 
             //历史销售分析
             var homeLineXS = echarts.init(document.getElementById('homeLineXS'));
             var lineXSOption = {
+                title: {
+                    left: 'left',
+                    text: '销售收入分析',
+                    top:6,
+                },
                 tooltip: {
                     trigger: 'axis',
                     position: function (pt) {
                         return [pt[0], '10%'];
-                    }
+                    },
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）'
                 },
-                title: {
-                    left: 'left',
-                    text: '历史销售分析',
-                    top:6,
+                legend: {
+                    top:10,
+                    data:['销售额','代理费'],
                 },
                 grid: {
-                    top: '20%',
+                    top: '18%',
                     left: '3%',
                     right: '3%',
-                    bottom: '13%',
+                    bottom: '8%',
                     containLabel: true
                 },
                 xAxis: {
@@ -94,11 +99,13 @@ $(document).ready(function () {
                 },
                 yAxis: [
                     {
-                        type: 'value',
+                        type:'value',
+                        name:"万元",
                     },
                     {
                         type: 'value',
-                        max: 600000,
+                        name:"万元",
+                        max: 60,
                     }
                 ],
                 dataZoom: [
@@ -133,7 +140,7 @@ $(document).ready(function () {
                             }
                         },
                         data: res.allDate.map(function (item) {
-                            return item.sales
+                            return item.sales / 10000
                         })
                     },
                     {
@@ -142,7 +149,7 @@ $(document).ready(function () {
                         yAxisIndex: 1,
                         smooth: true,
                         data: res.allDate.map(function (item) {
-                            return item.proxy
+                            return item.proxy / 10000
                         })
                     }
                 ]
@@ -152,22 +159,27 @@ $(document).ready(function () {
             //未来销售分析
             var homeLine = echarts.init(document.getElementById('homeLine'));
             var lineOption = {
+                title: {
+                    left: 'left',
+                    text: '承运收入分析',
+                    top:6,
+                },
                 tooltip: {
                     trigger: 'axis',
                     position: function (pt) {
                         return [pt[0], '10%'];
-                    }
+                    },
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）'
                 },
-                title: {
-                    left: 'left',
-                    text: '未来销售分析',
-                    top:6,
+                legend: {
+                    top:10,
+                    data:['销售额','代理费'],
                 },
                 grid: {
-                    top: '20%',
+                    top: '18%',
                     left: '3%',
                     right: '3%',
-                    bottom: '13%',
+                    bottom: '8%',
                     containLabel: true
                 },
                 xAxis: {
@@ -180,9 +192,11 @@ $(document).ready(function () {
                 yAxis: [
                     {
                         type: 'value',
+                        name:'万元'
                     },
                     {
                         type: 'value',
+                        name:'万元'
                     }
                 ],
                 dataZoom: [
@@ -217,7 +231,7 @@ $(document).ready(function () {
                             }
                         },
                         data: res.allDate2.map(function (item) {
-                            return item.sales
+                            return item.sales / 10000
                         })
                     },
                     {
@@ -226,7 +240,7 @@ $(document).ready(function () {
                         yAxisIndex: 1,
                         smooth: true,
                         data: res.allDate2.map(function (item) {
-                            return item.proxy
+                            return item.proxy / 10000
                         })
                     }
                 ]
@@ -243,21 +257,24 @@ $(document).ready(function () {
             })
             var homeChina = echarts.init(document.getElementById('homeChina'));
             var chinaOption = {
+                color:['#FF4455','#568EFD'],
                 title: {
                     text: '地区分布',
-                    left: 'left',
+                    top:10,
+                    left: 10,
                 },
                 tooltip: {
                     trigger: 'item',
                     formatter: '{a}：<br />{b}：{c}（万）',
                 },
                 visualMap: {
-                    min: 1000000,
-                    max: 4000000,
+                    min: 100,
+                    max: 300,
                     left: 'left',
                     top: 'bottom',
                     text: ['高', '低'],           // 文本，默认为数值文本
-                    calculable: true
+                    calculable: true,
+                    color: ['orangered','yellow','lightskyblue' ]
                 },
                 series: [
                     {
@@ -265,6 +282,7 @@ $(document).ready(function () {
                         type: 'map',
                         mapType: 'china',
                         selectedMode: 'single',
+                        left:120,
                         zoom: 1.2,
                         label: {
                             normal: {
@@ -274,7 +292,10 @@ $(document).ready(function () {
                                 show: true
                             }
                         },
-                        data: res.provinceIevel
+                        data:res.provinceIevel.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
@@ -287,7 +308,8 @@ $(document).ready(function () {
                     trigger: 'axis',
                     axisPointer: {            // 坐标轴指示器，坐标轴触发有效
                         type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
+                    },
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）'
                 },
                 legend: {
                     data: ['销售额', '代理费'],
@@ -310,10 +332,12 @@ $(document).ready(function () {
                 yAxis: [
                     {
                         type: 'value',
+                        name:'万元'
                     },
                     {
                         type: 'value',
-                        max: 50000
+                        name:'万元',
+                        max: 5
                     }
                 ],
                 series: [
@@ -327,7 +351,7 @@ $(document).ready(function () {
                             }
                         },
                         data: res.provinceIevel.map(function (item) {
-                            return item.areaSales
+                            return item.areaSales / 10000
                         })
                     },
                     {
@@ -340,7 +364,7 @@ $(document).ready(function () {
                             }
                         },
                         data: res.provinceIevel.map(function (item) {
-                            return item.areaProxy
+                            return item.areaProxy / 10000
                         })
                     }
                 ]
@@ -354,10 +378,10 @@ $(document).ready(function () {
                     return item.name
                 });
                 barOption.series[0].data = data.map(function (item) {
-                    return item.departmentSales
+                    return item.departmentSales / 10000
                 });
                 barOption.series[1].data = data.map(function (item) {
-                    return item.departmentProxy
+                    return item.departmentProxy / 10000
                 });
                 homeBar.setOption(barOption);
                 homeChina.group = ' ';   //取消图形联动
@@ -369,10 +393,10 @@ $(document).ready(function () {
                     return item.name
                 })
                 barOption.series[0].data = data.map(function (item) {
-                    return item.areaSales
+                    return item.areaSales / 10000
                 })
                 barOption.series[1].data = data.map(function (item) {
-                    return item.areaProxy
+                    return item.areaProxy /10000
                 })
                 homeBar.setOption(barOption);
                 echarts.connect([homeChina, homeBar]);
@@ -452,14 +476,14 @@ $(document).ready(function () {
                 if (allDate == undefined) {return};
                 if (allDate[3] !== undefined) {
                     //KPI
-                    $('.sales').html(res.selectSales + '元');
-                    $('.proxy').html(res.selectProxy + '元');
+                    $('.sales').html(res.selectSales / 10000 + '万');
+                    $('.proxy').html(res.selectProxy / 10000 + '万');
                     //历史销售
                     lineXSOption.series[0].data = res.selectDate.map(function (item) {
-                        return item.sales;
+                        return item.sales / 10000;
                     })
                     lineXSOption.series[1].data = res.selectDate.map(function (item) {
-                        return item.proxy;
+                        return item.proxy / 10000;
                     })
                     homeLineXS.setOption(lineXSOption);
                     //未来销售
@@ -467,24 +491,27 @@ $(document).ready(function () {
                         return item.date;
                     })
                     lineOption.series[0].data = res.selectDate2.map(function (item) {
-                        return item.sales;
+                        return item.sales / 10000;
                     })
                     lineOption.series[1].data = res.selectDate2.map(function (item) {
-                        return item.proxy;
+                        return item.proxy  / 10000;
                     })
                     homeLine.setOption(lineOption);
                     //地图
-                    chinaOption.visualMap.max = 30000000;
-                    chinaOption.series[0].data = res.provinceIevel2;
+                    chinaOption.visualMap.max = 3000;
+                    chinaOption.series[0].data = res.provinceIevel2.map(function(item){
+                        var value = item.value / 10000
+                        return {name:item.name,value:value}
+                    })
                     homeChina.setOption(chinaOption);
                     //柱状图
                     barOption.series[0].data = res.provinceIevel2.map(function (item) {
-                        return item.areaSales
+                        return item.areaSales / 10000
                     });
-                    barOption.yAxis[1].max = 500000;
+                    barOption.yAxis[1].max = 50;
                     barOption.series[1].type = 'bar';
                     barOption.series[1].data = res.provinceIevel2.map(function (item) {
-                        return item.areaProxy
+                        return item.areaProxy / 10000
                     })
                     homeBar.setOption(barOption);
                 };

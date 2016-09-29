@@ -4,91 +4,52 @@ $(function() {
             var provinces = res.selectOne;
             var allDate;
 
-            //三级下拉菜单
-            var options = provinces.map(function (item, index) {
-                return '<option value="' + item.value + '" data-index="' + index + '">' + item.name + '</option>';
-            })
-
-            $('.oneSelect').html('<option data-index="-1">--请选择--</option>' + options);
-
-            $('.oneSelect').on('change', function () {
-
-                var index = $(this).find('option:selected').data('index');
-
-                if (index == -1) {
-                    $('.twoSelect').html('<option data-index="-1">--请选择--</option>');
-                    return;
-                }
-
-                var provinceIevel = provinces[index]['provinceIevel'];
-
-                var option_dep = provinceIevel.map(function (item, index) {
-                    return '<option value="' + item.value + '" data-index="' + index + '">' + item.name + '</option>';
-                })
-                $('.twoSelect').html('<option data-index="-1">--请选择--</option>' + option_dep);
-            })
-
-            $('.twoSelect').on('change', function () {
-                var index = $(this).find('option:selected').data('index');
-                var p_index = $('.oneSelect').find('option:selected').data('index');
-
-                if (index == -1) {
-                    $('.twoSelect').html('<option data-index="-1">--请选择--</option>');
-                    return;
-                }
-
-                var area = provinces[p_index]['provinceIevel'][index]['department'];
-                if (!provinces[p_index]['provinceIevel'][index]['department']) {
-                    $('.threeSelect').css('display', 'none');
-                    return;
-                } else {
-                    $('.threeSelect').css('display', 'inline-block');
-                    var area_dep_option = area.map(function (item, index) {
-                        return '<option value="' + item.value + '" data-index="' + index + '">' + item.name + '</option>';
-                    })
-                    $('.threeSelect').html('<option data-index="-1">--请选择--</option>' + area_dep_option);
-                }
-
-            })
-
         //一级饼图
         var interLinePie = echarts.init(document.getElementById('interLinePie'));
         var interOption = {
+            backgroundColor: '#fff',
             title : {
-                text: '单程联程结构占比分析',
+                text: '单/联程收入及占比',
                 x:'left',
                 padding:[10,200,10,10],
                 backgroundColor:'#eee',
             },
             tooltip: {
                 trigger: 'item',
-                formatter: "{a} <br/>{b}: {c} ({d}%)"
+                formatter: "{a} <br/>{b}: {c}万 ({d}%)"
             },
             series: [
                 {
                     name:'川航',
                     type:'pie',
-                    radius: ['35%', '55%'],
-                    startAngle:180,
+                    radius: ['30%', '45%'],
+                    center:['50%','60%'],
+                    startAngle:80,
                     label: {
                         normal: {
                             textStyle: {
-                                fontSize: '20',
+                                fontSize: '14',
                                 fontWeight: 'bold'
                             }
                         },
-                        emphasis: {
-                            show: true,
-                            textStyle: {
-                                fontSize: '22',
-                                fontWeight: 'bold'
-                            }
-                        }
                     },
-                    data:[
-                        {value:335, name:'单程占比'},
-                        {value:310, name:'联程占比'},
-                    ]
+                    itemStyle:{
+                        normal:{
+                            label:{
+                                formatter:'{b}:{d}%'
+                            },
+                        },
+                    },
+                    labelLine:{
+                        normal:{
+                            length:8,
+                            length2:5,
+                        },
+                    },
+                    data:res.interLineData[0].interLinePie.map(function(item){
+                        var value = item.value / 10000
+                        return {name:item.name,value:value}
+                    })
                 }
             ]
         };
@@ -99,22 +60,20 @@ $(function() {
             if(!window.flag) {
                 window.flag = 1;
                 var data_index = param.dataIndex;
-                console.log(data_index);
                 if (data_index == 1) {
-                    interOption.series[0].data = [
-                        {value: 335, name: 'LA'},
-                        {value: 510, name: 'LC'},
-                        {value: 810, name: '其他'},
-                    ]
+                    interOption.series[0].data = res.interLineData[0].interLinePie[1].process.map(function(item){
+                        var value = item.value / 10000
+                        return {name:item.name,value:value}
+                    })
                 } else {
                     return;
                 }
                 interLinePie.setOption(interOption);
             }else{
-                interOption.series[0].data = [
-                    {value: 335, name: '单程占比'},
-                    {value: 310, name: '联程占比'},
-                ]
+                interOption.series[0].data = res.interLineData[0].interLinePie.map(function(item){
+                    var value = item.value / 10000
+                    return {name:item.name,value:value}
+                })
                 interLinePie.setOption(interOption);
                 window.flag = 0;
             }
@@ -175,7 +134,7 @@ $(function() {
                 },
                 lineStyle: {
                     normal: {
-                        color: color[i],
+                        color:'#E2E434', //color[1],
                         width: 0,
                         curveness: 0.2
                     }
@@ -191,12 +150,12 @@ $(function() {
                     period: 6,
                     trailLength: 0,
                     symbol: planePath,
-                    symbolSize: 15
+                    symbolSize: 16
                 },
                 lineStyle: {
                     normal: {
-                        color: color[i],
-                        width: 1,
+                        color: '#E87631',
+                        width: 3,
                         opacity: 0.4,
                         curveness: 0.2
                     }
@@ -219,36 +178,31 @@ $(function() {
                     }
                 },
                 symbolSize: function (val) {
-                    return val[2] / 50;
+                    return val[2] / 10;
                 },
                 itemStyle: {
                     normal: {
-                        color: color[i]
+                        color: '#EA3E33'
                     }
                 },
                 data: item[1].map(function (dataItem) {
                     return {
-                        name: dataItem[1].name,
-                        value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+                        name: dataItem[0].name,
+                        value: geoCoordMap[dataItem[0].name].concat([dataItem[0].value])
                     };
                 })
             });
         });
         var chinaOption = {
             backgroundColor: '#ccc',
-            title : {
-                text: '模拟迁徙',
-                left: 'right',
-                textStyle : {
-                    color: '#fff'
-                }
-            },
             tooltip : {
                 trigger: 'item',
                 formatter:function(obj){
                     var name = obj.name;
-                    var value = obj.data.value[2];
-                    return name + '：' + value + '（万）'
+                    if(name !== ''){
+                        var value = obj.data.value[2];
+                        return name + '：' + value + '（万）'
+                    }
                 }
             },
             geo: {
@@ -259,15 +213,16 @@ $(function() {
                     }
                 },
                 zoom:2,
-                left:180,
-                bottom:30,
+                roam:'scale',
+                top:20,
+                left:'10%',
                 itemStyle: {
                     normal: {
-                        areaColor: '#323c48',
+                        areaColor: '#C2D3D4',
                         borderColor: '#404a59'
                     },
                     emphasis: {
-                        areaColor: '#2a333d'
+                        areaColor: '#C2D3D4'
                     }
                 }
             },
@@ -279,11 +234,17 @@ $(function() {
         var interLineBar = echarts.init(document.getElementById('interLineBar'));
         var interLineBaroption = {
                 color: ['#3398DB'],
+                title : {
+                    text: '航段收入',
+                    left: 'right',
+                    top:20,
+                },
                 tooltip : {
                     trigger: 'axis',
                     axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                         type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
+                    },
+                    formatter: '{b}<br />{a}: {c}'+'（万）'
                 },
                 grid: {
                     left: '3%',
@@ -305,12 +266,13 @@ $(function() {
                         type : 'value'
                     }
                 ],
-                series : [
+                series:[
                     {
-                        name:'数据量',
+                        name:'总量',
                         type:'bar',
-                        barWidth: '60%',
-                        data:[980, 872]
+                        data:res.interLineData[0].goBack[0].total.map(function(item){
+                            return item.value / 10000;
+                        })
                     }
                 ]
             };
@@ -401,16 +363,17 @@ $(function() {
             if(!window.flag) {
                 window.flag = 1;
                 var dataIndex = param.dataIndex;
-                interLineBaroption.xAxis.data = provinces[dataIndex].department.map(function (item) {
-                    return item.name
-                });
-                interLineBaroption.series[0].data = provinces[dataIndex].department.map(function (item) {
-                    return item.departmentSales
-                });
+                res.interLineData[0].goBack[0].total.map(function(item){
+                    return item.value / 10000;
+                })
+                interLineBaroption.series[0].data = res.interLineData[0].goBack[0].interArea[dataIndex].departures.map(function(item){
+                    return item.value / 10000;
+                })
                 interLineBar.setOption(interLineBaroption);
             }else{
-                interLineBaroption.xAxis.data = [980, 872]
-                interLineBaroption.series[0].data = [980, 872]
+                interLineBaroption.series[0].data = res.interLineData[0].goBack[0].total.map(function(item){
+                    return item.value / 10000;
+                })
                 interLineBar.setOption(interLineBaroption);
                 window.flag =0;
             }
@@ -418,8 +381,9 @@ $(function() {
 
         //柱状图点击事件返回
         interLineBar.on('click',function(param){
-            interLineBaroption.xAxis.data = ['去程','回程']
-            interLineBaroption.series[0].data = [980, 872]
+            interLineBaroption.series[0].data = res.interLineData[0].goBack[0].total.map(function(item){
+                return item.value / 10000;
+            })
             interLineBar.setOption(interLineBaroption);
             window.flag =0;
         });

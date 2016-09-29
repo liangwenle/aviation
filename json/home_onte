@@ -81,8 +81,9 @@ interLineData:默认数据
         process:联程下钻数据
     interLineChina:地图数据
         LSData:拉萨数据
-    goBack:去程回程
-
+    goBack:柱状图去程回程
+        total:总数
+        interArea:柱状图地区
 
 舱位结构页面
 spaceData:默认数据

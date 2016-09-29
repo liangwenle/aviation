@@ -34,7 +34,7 @@ $(function () {
                 $('.nav > li').eq(i).children('a').addClass('left' + i);
             }
         }
-        allFilter();
+        /*allFilter();*/
     });
     /*鼠标经过显示二级菜单*/
     /*$('.nav > li').each(function(){

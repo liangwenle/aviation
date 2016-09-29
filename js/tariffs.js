@@ -55,7 +55,7 @@ $(function() {
             var tariffsBar = echarts.init(document.getElementById('tariffsBar'));
             var tariffsBarOption = {
                 title : {
-                    text: '运价收入',
+                    text: '散/团收入及占比',
                     x:'left',
                     top:10
                 },
@@ -63,12 +63,13 @@ $(function() {
                     trigger: 'axis',
                     axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                         type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
+                    },
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）'
                 },
                 legend: {
-                    left:'20%',
-                    top:12,
-                    data:['散客','团体']
+                    left:'30%',
+                    top:13,
+                    data:['散客','团队']
                 },
                 grid: {
                     top:'15%',
@@ -97,15 +98,15 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.tariffsData[0].area.map(function(item){
-                            return item.tariff[0].value;
+                            return item.tariff[0].value / 10000;
                         })
                     },
                     {
-                        name:'团体',
+                        name:'团队',
                         type:'bar',
                         stack: '广告',
                         data:res.tariffsData[0].area.map(function(item){
-                            return item.tariff[1].value;
+                            return item.tariff[1].value / 10000;
                         })
                     }
                 ]
@@ -117,21 +118,31 @@ $(function() {
             var tariffsPieOption = {
                 tooltip : {
                     trigger: 'item',
-                    formatter: "{b} : {c} ({d}%)"
+                    formatter: "{b} : {c}万 ({d}%)"
                 },
                 series : [
                     {
                         name: '川航',
                         type: 'pie',
-                        radius : '50%',
-                        center: ['50%', '43%'],
+                        radius : '40%',
+                        center: ['44%', '32%'],
+                        itemStyle:{
+                            normal:{
+                                label:{
+                                    formatter:'{b}:{d}%'
+                                },
+                            },
+                        },
                         labelLine:{
                             normal:{
                                 length:8,
                                 length2:5,
                             },
                         },
-                        data:res.tariffsData[0].tariffPie
+                        data:res.tariffsData[0].tariffPie.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
@@ -141,7 +152,7 @@ $(function() {
             var tariffsBar2 = echarts.init(document.getElementById('tariffsBar2'));
             var tariffsBar2Option = {
                 title : {
-                    text: '销售张数',
+                    text: '散/团销售张数及占比',
                     x:'left',
                     top:10
                 },
@@ -149,12 +160,13 @@ $(function() {
                     trigger: 'axis',
                     axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                         type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
+                    },
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）'
                 },
                 legend: {
-                    left:'20%',
-                    top:12,
-                    data:['散客','团体']
+                    left:'35%',
+                    top:13,
+                    data:['散客','团队']
                 },
                 grid: {
                     top:'15%',
@@ -183,15 +195,15 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.tariffsData[0].area.map(function(item){
-                            return item.numberOfSheets[0].value;
+                            return item.numberOfSheets[0].value / 10000;
                         })
                     },
                     {
-                        name:'团体',
+                        name:'团队',
                         type:'bar',
                         stack: '广告',
                         data:res.tariffsData[0].area.map(function(item){
-                            return item.numberOfSheets[1].value;
+                            return item.numberOfSheets[1].value / 10000;
                         })
                     }
                 ]
@@ -203,21 +215,31 @@ $(function() {
             var tariffsPie2Option = {
                 tooltip : {
                     trigger: 'item',
-                    formatter: "{b} : {c} ({d}%)"
+                    formatter: "{b} : {c}万 ({d}%)"
                 },
                 series : [
                     {
                         name: '川航',
                         type: 'pie',
-                        radius : '50%',
-                        center: ['50%', '43%'],
+                        radius : '40%',
+                        center: ['44%', '32%'],
                         labelLine:{
                             normal:{
                                 length:8,
                                 length2:5,
                             },
                         },
-                        data:res.tariffsData[0].numberPie
+                        itemStyle:{
+                            normal:{
+                                label:{
+                                    formatter:'{b}:{d}%'
+                                },
+                            },
+                        },
+                        data:res.tariffsData[0].numberPie.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
@@ -227,9 +249,11 @@ $(function() {
             var tariffsScatter = echarts.init(document.getElementById('tariffsScatter'));
             var tariffsScatterOption = {
                 title: {
+                    top:10,
                     text: '平均票价'
                 },
                 legend: {
+                    top:10,
                     right: 10,
                     data: ['散客', '团体']
                 },
@@ -254,10 +278,10 @@ $(function() {
                 series: [{
                     name: '散客',
                     data:res.tariffsData[0].area.map(function(item){
-                        return item.fitGroup[0].value;
+                        return item.fitGroup[0].value / 10000;
                     }),
                     type: 'scatter',
-                    symbolSize:20,
+                    symbolSize:26,
                     label: {
                         emphasis: {
                             show: true,
@@ -267,28 +291,14 @@ $(function() {
                             position: 'top'
                         }
                     },
-                    itemStyle: {
-                        normal: {
-                            shadowBlur: 10,
-                            shadowColor: 'rgba(120, 36, 50, 0.5)',
-                            shadowOffsetY: 5,
-                            color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-                                offset: 0,
-                                color: 'rgb(251, 118, 123)'
-                            }, {
-                                offset: 1,
-                                color: 'rgb(204, 46, 72)'
-                            }])
-                        }
-                    }
                 },
                 {
                     name: '团体',
                     data: res.tariffsData[0].area.map(function(item){
-                        return item.fitGroup[1].value;
+                        return item.fitGroup[1].value / 10000;
                     }),
                     type: 'scatter',
-                    symbolSize:20,
+                    symbolSize:26,
                     label: {
                         emphasis: {
                             show: true,
@@ -298,117 +308,77 @@ $(function() {
                             position: 'top'
                         }
                     },
-                    itemStyle: {
-                        normal: {
-                            shadowBlur: 10,
-                            shadowColor: 'rgba(221, 221, 45, 0.5)',
-                            shadowOffsetY: 5,
-                            color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-                                offset: 0,
-                                color: 'rgb(236,236,138)'
-                            }, {
-                                offset: 1,
-                                color: 'rgb(188,188,30)'
-                            }])
-                        }
-                    }
                 }]
             };
             tariffsScatter.setOption(tariffsScatterOption);
 
             //明折明扣气泡图
-                var tariffsScatter2 = echarts.init(document.getElementById('tariffsScatter2'));
-                var tariffsScatterOption2 = {
-                    title: {
-                        text: '平均票价'
-                    },
-                    legend: {
-                        right: 10,
-                        data: ['明折明扣','折上折']
-                    },
-                    xAxis: [
-                        {
-                            type : 'category',
-                            data :res.tariffsData[0].area.map(function(item){return item.name})
-                        }
-                    ],
-                    yAxis: [
-                        {
-                            type : 'value'
-                        }
-                    ],
-                    grid: {
-                        top:'20%',
-                        left: '3%',
-                        right: '4%',
-                        bottom: '5%',
-                        containLabel: true
-                    },
-                    series: [
-                        {
-                            name: '明折明扣',
-                            data:res.tariffsData[0].area.map(function(item){
-                                return item.discounted[0].value;
-                            }),
-                            type: 'scatter',
-                            symbolSize:20,
-                            label: {
-                                emphasis: {
-                                    show: true,
-                                    formatter: function (param) {
-                                        return param.data[3];
-                                    },
-                                    position: 'top'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    shadowBlur: 10,
-                                    shadowColor: 'rgba(25, 100, 150, 0.5)',
-                                    shadowOffsetY: 5,
-                                    color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-                                        offset: 0,
-                                        color: 'rgb(129, 227, 238)'
-                                    }, {
-                                        offset: 1,
-                                        color: 'rgb(25, 183, 207)'
-                                    }])
-                                }
+            var tariffsScatter2 = echarts.init(document.getElementById('tariffsScatter2'));
+            var tariffsScatterOption2 = {
+                title: {
+                    top:10,
+                    text: '平均票价'
+                },
+                legend: {
+                    top:10,
+                    right: 10,
+                    data: ['明折明扣','折上折']
+                },
+                xAxis: [
+                    {
+                        type : 'category',
+                        data :res.tariffsData[0].area.map(function(item){return item.name})
+                    }
+                ],
+                yAxis: [
+                    {
+                        type : 'value'
+                    }
+                ],
+                grid: {
+                    top:'20%',
+                    left: '3%',
+                    right: '4%',
+                    bottom: '5%',
+                    containLabel: true
+                },
+                series: [
+                    {
+                        name: '明折明扣',
+                        data:res.tariffsData[0].area.map(function(item){
+                            return item.discounted[0].value;
+                        }),
+                        type: 'scatter',
+                        symbolSize:26,
+                        label: {
+                            emphasis: {
+                                show: true,
+                                formatter: function (param) {
+                                    return param.data[3];
+                                },
+                                position: 'top'
                             }
                         },
-                        {
-                            name: '折上折',
-                            data:res.tariffsData[0].area.map(function(item){
-                                return item.discounted[1].value;
-                            }),
-                            type: 'scatter',
-                            symbolSize:20,
-                            label: {
-                                emphasis: {
-                                    show: true,
-                                    formatter: function (param) {
-                                        return param.data[3];
-                                    },
-                                    position: 'top'
-                                }
-                            },
-                            itemStyle: {
-                                normal: {
-                                    shadowBlur: 10,
-                                    shadowColor: 'rgba(31,89,208, 0.5)',
-                                    shadowOffsetY: 5,
-                                    color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
-                                        offset: 0,
-                                        color: 'rgb(164,190,241)'
-                                    }, {
-                                        offset: 1,
-                                        color: 'rgb(23,66,154)'
-                                    }])
-                                }
+                    },
+                    {
+                        name: '折上折',
+                        data:res.tariffsData[0].area.map(function(item){
+                            return item.discounted[1].value;
+                        }),
+                        type: 'scatter',
+                        symbolSize:26,
+                        label: {
+                            emphasis: {
+                                show: true,
+                                formatter: function (param) {
+                                    return param.data[3];
+                                },
+                                position: 'top'
                             }
-                        }]
-                };
-                tariffsScatter2.setOption(tariffsScatterOption2);
+                        }
+                    }]
+            };
+            tariffsScatter2.setOption(tariffsScatterOption2);
 
 
             //页面接收数据刷新
@@ -473,7 +443,6 @@ $(function() {
                 return receive;
             }
             allDate = getQryStr();
-            console.log(allDate);
 
             //菜单筛选清空按钮
             $('#dateClear2').on('click', function () {
@@ -487,17 +456,23 @@ $(function() {
             //分页面按钮点击提交
             $('#dateSubmit2').on('click',function(){
                 var indexData = $('.oneSelect').find('option:selected').attr('data-index')
-                if(indexData == '-1'){alert('请先选择区域!!!')};
+                if(indexData == '-1'){alert('请先选择区域!!!'); return};
                 pageDate()
             })
 
             //柱状图点击方法
             function travelersBar(data){
-                tariffsPieOption.series[0].data = data.areatariffPie;
+                tariffsPieOption.series[0].data = data.areatariffPie.map(function(item){
+                    var value = item.value / 10000
+                    return {name:item.name,value:value}
+                });
                 tariffsPie.setOption(tariffsPieOption);
             }
             function travelersBar2(data){
-                tariffsPie2Option.series[0].data = data.areaNumberPie;
+                tariffsPie2Option.series[0].data = data.areaNumberPie.map(function(item){
+                    var value = item.value / 10000
+                    return {name:item.name,value:value}
+                });
                 tariffsPie2.setOption(tariffsPie2Option);
             }
             //运价柱状图点击事件
@@ -528,13 +503,13 @@ $(function() {
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                if (allDate == undefined){return};
-                if (allDate[3] !== undefined) {
+                /*if (allDate == undefined){return};
+                if (allDate[3] !== undefined) {*/
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
                     var indexThree = $('.threeSelect').find('option:selected').attr('data-index');
-                    if (indexOne == '0') { //成都片区
+                    if (indexOne == '0' && indexTwo == '3' && indexThree == '0') { //成都片区
                         //运价柱状图
                         tariffsBarOption.grid.bottom = '6%';
                         tariffsBarOption.dataZoom = [
@@ -559,15 +534,18 @@ $(function() {
                             }];
                         tariffsBarOption.xAxis[0].data =res.tariffsData2[0].area.map(function(item){return item.name})
                         tariffsBarOption.series[0].data = res.tariffsData2[0].area.map(function(item){
-                            return item.tariff[0].value;
+                            return item.tariff[0].value / 10000;
                         });
                         tariffsBarOption.series[1].data = res.tariffsData2[0].area.map(function(item){
-                            return item.tariff[1].value;
+                            return item.tariff[1].value / 10000;
                         })
                         tariffsBar.setOption(tariffsBarOption);
 
                         //运价饼图
-                        tariffsPieOption.series[0].data = res.tariffsData2[0].tariffPie
+                        tariffsPieOption.series[0].data = res.tariffsData2[0].tariffPie.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                         tariffsPie.setOption(tariffsPieOption);
 
                         //张数柱状图
@@ -594,19 +572,22 @@ $(function() {
                             }];
                         tariffsBar2Option.xAxis[0].data =res.tariffsData2[0].area.map(function(item){return item.name})
                         tariffsBar2Option.series[0].data = res.tariffsData2[0].area.map(function(item){
-                            return item.numberOfSheets[0].value;
+                            return item.numberOfSheets[0].value / 10000;
                         });
                         tariffsBar2Option.series[1].data = res.tariffsData2[0].area.map(function(item){
-                            return item.numberOfSheets[1].value;
+                            return item.numberOfSheets[1].value / 10000;
                         })
                         tariffsBar2.setOption(tariffsBar2Option);
 
                         //张数饼图
-                        tariffsPie2Option.series[0].data = res.tariffsData2[0].numberPie
+                        tariffsPie2Option.series[0].data = res.tariffsData2[0].numberPie.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                         tariffsPie2.setOption(tariffsPie2Option);
 
                         //散客团体气泡图
-                        tariffsScatterOption.grid.bottom = '6%';
+                        tariffsScatterOption.grid.bottom = '10%';
                         tariffsScatterOption.dataZoom = [
                             {
                                 type: 'inside',
@@ -629,15 +610,15 @@ $(function() {
                             }];
                         tariffsScatterOption.xAxis[0].data =res.tariffsData2[0].area.map(function(item){return item.name})
                         tariffsScatterOption.series[0].data = res.tariffsData2[0].area.map(function(item){
-                            return item.fitGroup[0].value;
+                            return item.fitGroup[0].value / 10000;
                         });
                         tariffsScatterOption.series[1].data = res.tariffsData2[0].area.map(function(item){
-                            return item.fitGroup[1].value;
+                            return item.fitGroup[1].value / 10000;
                         }),
                         tariffsScatter.setOption(tariffsScatterOption);
 
                         //明折明扣气泡图
-                        tariffsScatterOption2.grid.bottom = '6%';
+                        tariffsScatterOption2.grid.bottom = '10%';
                         tariffsScatterOption2.dataZoom = [
                             {
                                 type: 'inside',
@@ -660,17 +641,17 @@ $(function() {
                             }];
                         tariffsScatterOption2.xAxis[0].data =res.tariffsData2[0].area.map(function(item){return item.name})
                         tariffsScatterOption2.series[0].data = res.tariffsData2[0].area.map(function(item){
-                            return item.discounted[0].value;
+                            return item.discounted[0].value / 10000;
                         });
                         tariffsScatterOption2.series[1].data = res.tariffsData2[0].area.map(function(item){
-                            return item.discounted[1].value;
+                            return item.discounted[1].value / 10000;
                         }),
                         tariffsScatter2.setOption(tariffsScatterOption2);
-                    } else if(indexThree == '-1'){
-                        //默认页面数据
-                    };
+                    } else{
+                        //默认数据
+                    }
                 }
-            }
+            /*}*/
 
             pageDate()
         })

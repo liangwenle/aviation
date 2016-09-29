@@ -3,7 +3,13 @@ $(function () {
         .then(function (res) {
             var provinces = res.selectOne;
             var allDate;
-
+            //处理数据单位
+            function million(data){
+                data.map(function(item){
+                    var nameValue = item.value / 10000
+                    return {name:item.name,value:nameValue}
+                })
+            }
             //三级下拉菜单
             var options = provinces.map(function (item, index) {
                 return '<option value="' + item.value + '" data-index="' + index + '">' + item.name + '</option>';
@@ -56,14 +62,14 @@ $(function () {
             var channel_onePie = echarts.init(document.getElementById('channel_onePie'));
             var onePie_option = {
                 title: {
-                    text: '渠道结构占比分析',
+                    text: '渠道收入结构占比分析',
                     x: 'left',
                     padding: [10, 400, 10, 10],
                     backgroundColor: '#eee',
                 },
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                    formatter: "{a} <br/>{b}: {c}万 ({d}%)"
                 },
                 series: [
                     {
@@ -94,25 +100,28 @@ $(function () {
                                 },
                             },
                         },
-                        data:res.structure[0].directDistribution
+                        data:res.structure[0].directDistribution.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
             channel_onePie.setOption(onePie_option);
-            $('.totalRevenue').html(res.structure[0].totalRevenue + '元');
+            $('.totalRevenue').html(res.structure[0].totalRevenue / 10000 + '万');
 
             //二级分销
             var channel_twoTopPie = echarts.init(document.getElementById('channel_twoTopPie'));
             var twoTopPie_option = {
                 title: {
-                    text: '分销收入占比',
+                    text: '分销收入及占比',
                     x: 'left',
                     padding: [10, 400, 10, 10],
                     backgroundColor: '#eee',
                 },
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                    formatter: "{a} <br/>{b}: {c}万 ({d}%)"
                 },
                 series: [
                     {
@@ -142,12 +151,15 @@ $(function () {
                                 length2:5,
                             },
                         },
-                        data:res.structure[0].local_offSite
+                        data:res.structure[0].local_offSite.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
             channel_twoTopPie.setOption(twoTopPie_option);
-            $('.distribution').html(res.structure[0].distribution + '元');
+            $('.distribution').html(res.structure[0].distribution / 10000 + '万');
 
             //三级分销
             var channel_threeTopPie = echarts.init(document.getElementById('channel_threeTopPie'));
@@ -160,7 +172,7 @@ $(function () {
                 },
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                    formatter: "{a} <br/>{b}: {c}万 ({d}%)"
                 },
                 series: [
                     {
@@ -189,7 +201,10 @@ $(function () {
                                 length2:5,
                             },
                         },
-                        data:res.structure[0].agent
+                        data:res.structure[0].agent.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
@@ -199,14 +214,14 @@ $(function () {
             var channel_twoBottomPie = echarts.init(document.getElementById('channel_twoBottomPie'));
             var twoBottomPie_option = {
                 title: {
-                    text: '直销收入占比',
+                    text: '直销收入及占比',
                     x: 'left',
                     padding: [10, 500, 10, 10],
                     backgroundColor: '#eee',
                 },
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                    formatter: "{a} <br/>{b}: {c}万 ({d}%)"
                 },
                 series: [
                     {
@@ -216,6 +231,7 @@ $(function () {
                         avoidLabelOverlap: false,
                         center: ['50%', '60%'],
                         startAngle: 120,
+                        minAngle:25,
                         label: {
                             emphasis: {
                                 show: true,
@@ -237,12 +253,15 @@ $(function () {
                                 length2:5,
                             },
                         },
-                        data:res.structure[0].directChannel
+                        data:res.structure[0].directChannel.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
             channel_twoBottomPie.setOption(twoBottomPie_option);
-            $('.direct').html(res.structure[0].direct + '元');
+            $('.direct').html(res.structure[0].direct / 10000 + '万');
 
             //三级直销
             var channel_threeBottomPie = echarts.init(document.getElementById('channel_threeBottomPie'));
@@ -255,7 +274,7 @@ $(function () {
                 },
                 tooltip: {
                     trigger: 'item',
-                    formatter: "{a} <br/>{b}: {c} ({d}%)"
+                    formatter: "{a} <br/>{b}: {c}万 ({d}%)"
                 },
                 series: [
                     {
@@ -285,7 +304,10 @@ $(function () {
                                 length2:5,
                             },
                         },
-                        data:res.structure[0].directChannel[0].website
+                        data:res.structure[0].directChannel[0].website.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
@@ -368,16 +390,22 @@ $(function () {
             //分页面按钮点击提交
             $('#dateSubmit2').on('click',function(){
                 var indexData = $('.oneSelect').find('option:selected').attr('data-index')
-                if(indexData == '-1'){alert('请先选择区域!!!')};
+                if(indexData == '-1'){alert('请先选择区域!!!'); return};
                 pageDate()
             })
 
             //饼图点击方法
             function travelersBar(index,data){
                 if (index == 0) {
-                    threeBottomPie_option.series[0].data =data.website;
+                    threeBottomPie_option.series[0].data =data.website.map(function(item){
+                        var value = item.value / 10000
+                        return {name:item.name,value:value}
+                    });
                 } else if (index == 3) {
-                    threeBottomPie_option.series[0].data =data.website;
+                    threeBottomPie_option.series[0].data =data.website.map(function(item){
+                        var value = item.value / 10000
+                        return {name:item.name,value:value}
+                    });
                 }else{
                     return;
                 }
@@ -398,26 +426,41 @@ $(function () {
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                if (allDate == undefined){return};
-                if (allDate[3] !== undefined) {
+                //if (allDate == undefined){return};
+                /*if (allDate[3] !== undefined) {*/
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
                     var indexThree = $('.threeSelect').find('option:selected').attr('data-index');
-                    if (indexOne == '0') { //成都片区
+                    if (indexOne == '0' && indexTwo == '3' && indexThree == '0') { //成都片区
                         //一级饼图
-                        $('.totalRevenue').html(res.structure2[0].totalRevenue + '元');
-                        onePie_option.series[0].data = res.structure2[0].directDistribution;
+                        $('.totalRevenue').html(res.structure2[0].totalRevenue /10000 + '万');
+                        onePie_option.series[0].data = res.structure2[0].directDistribution.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        });
                         //二级分销
-                        $('.distribution').html(res.structure2[0].distribution + '元');
-                        twoTopPie_option.series[0].data = res.structure2[0].local_offSite;
+                        $('.distribution').html(res.structure2[0].distribution /10000 + '万');
+                        twoTopPie_option.series[0].data = res.structure2[0].local_offSite.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        });
                         //三级分销
-                        threeTopPie_option.series[0].data = res.structure2[0].agent
+                        threeTopPie_option.series[0].data = res.structure2[0].agent.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                         //二级直销
-                        $('.direct').html(res.structure2[0].direct + '元');
-                        twoBottomPie_option.series[0].data = res.structure2[0].directChannel
+                        $('.direct').html(res.structure2[0].direct /10000 + '万');
+                        twoBottomPie_option.series[0].data = res.structure2[0].directChannel.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                         //三级直销
-                        threeBottomPie_option.series[0].data = res.structure2[0].directChannel[0].website
+                        threeBottomPie_option.series[0].data = res.structure2[0].directChannel[0].website.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
 
                         channel_onePie.setOption(onePie_option);
                         channel_twoTopPie.setOption(twoTopPie_option);
@@ -425,11 +468,11 @@ $(function () {
                         channel_twoBottomPie.setOption(twoBottomPie_option);
                         channel_threeBottomPie.setOption(threeBottomPie_option);
 
-                    } else if(indexThree == '-1'){
-                        //默认页面数据
-                    };
+                    } else{
+                        //默认数据
+                    }
                 }
-            }
+            /*}*/
 
             pageDate()
 

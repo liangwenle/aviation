@@ -13426,34 +13426,97 @@
     "interLineData":[
         {
             "interLinePie":[
-                {"name":"单程","value":100},
+                {"name":"单程","value":4263346},
                 {
                     "name":"联程",
-                    "value":100,
+                    "value":105260,
                     "process":[
-                        {"name":"LA","value":100},
-                        {"name":"LC","value":100},
-                        {"name":"其他","value":100}
+                        {"name":"LA","value":56620},
+                        {"name":"LC","value":14200},
+                        {"name":"其他","value":34440}
                     ]
                 }
             ],
             "interLineChina":[
                 {
                     "LSData":[
-                        [{"name":"拉萨"},{"name":"重庆","value":950}],
-                        [{"name":"拉萨"},{"name":"成都","value":950}],
-                        [{"name":"拉萨"},{"name":"杭州","value":950}],
-                        [{"name":"拉萨"},{"name":"昆明","value":950}],
-                        [{"name":"拉萨"},{"name":"丽江","value":950}],
-                        [{"name":"拉萨"},{"name":"绵阳","value":950}],
-                        [{"name":"拉萨"},{"name":"西安","value":950}],
-                        [{"name":"拉萨"},{"name":"西宁","value":950}]
+                        [{"name":"重庆","value":"108.7840"},{"name":"拉萨"}],
+                        [{"name":"成都","value":"335.8615"},{"name":"拉萨"}],
+                        [{"name":"杭州","value":"24.4780"},{"name":"拉萨"}],
+                        [{"name":"昆明","value":"19.2050"},{"name":"拉萨"}],
+                        [{"name":"丽江","value":"36.3050"},{"name":"拉萨"}],
+                        [{"name":"绵阳","value":"42.9790"},{"name":"拉萨"}],
+                        [{"name":"西安","value":"86.8490"},{"name":"拉萨"}],
+                        [{"name":"西宁","value":"35.1010"},{"name":"拉萨"}]
                     ]
                 }
             ],
             "goBack":[
-                {"name":"去程","value":100},
-                {"name":"回程","value":100}
+                {
+                    "total":[
+                        {"name":"去程","value":4095725},
+                        {"name":"回程","value":2937970}
+                    ],
+                    "interArea":[
+                        {
+                            "name":"重庆",
+                            "departures":[
+                                {"name":"去程","value":668260},
+                                {"name":"回程","value":419580}
+                            ]
+                        },
+                        {
+                            "name":"成都",
+                            "departures":[
+                                {"name":"去程","value":1937395},
+                                {"name":"回程","value":1421220}
+                            ]
+                        },
+                        {
+                            "name":"杭州",
+                            "departures":[
+                                {"name":"去程","value":135440},
+                                {"name":"回程","value":109340}
+                            ]
+                        },
+                        {
+                            "name":"昆明",
+                            "departures":[
+                                {"name":"去程","value":102630},
+                                {"name":"回程","value":89420}
+                            ]
+                        },
+                        {
+                            "name":"丽江",
+                            "departures":[
+                                {"name":"去程","value":189900},
+                                {"name":"回程","value":173150}
+                            ]
+                        },
+                        {
+                            "name":"绵阳",
+                            "departures":[
+                                {"name":"去程","value":251700},
+                                {"name":"回程","value":178090}
+                            ]
+                        },
+                        {
+                            "name":"西安",
+                            "departures":[
+                                {"name":"去程","value":588000},
+                                {"name":"回程","value":280490}
+                            ]
+                        },
+                        {
+                            "name":"西宁",
+                            "departures":[
+                                {"name":"去程","value":152370},
+                                {"name":"回程","value":198640}
+                            ]
+                        }
+                    ]
+                }
+
             ]
         }
     ],
@@ -13486,7 +13549,7 @@
                         {"name":"经济舱位","value":12832510},
                         {"name":"国际中转舱位","value":0},
                         {"name":"免票舱位","value":440},
-                        {"name":"国际头等舱","value":"--"},
+                        {"name":"国际头等舱","value":0},
                         {"name":"其他舱位","value":109950}
                     ],
                     "numberOfSheets": [

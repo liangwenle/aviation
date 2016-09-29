@@ -64,7 +64,7 @@ $(function() {
             var travelerBar = echarts.init(document.getElementById('travelerBar'));
             var travelerBarOption = {
                 title : {
-                    text: '运价收入',
+                    text: '旅客类型收入',
                     x:'left',
                     top:10
                 },
@@ -72,7 +72,8 @@ $(function() {
                     trigger: 'axis',
                     axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                         type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-                    }
+                    },
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）<br />{a2}: {c2}'+'（万）'
                 },
                 legend: {
                     top:12,
@@ -80,7 +81,7 @@ $(function() {
                     data:['成人','儿童','婴儿']
                 },
                 grid: {
-                    top:'15%',
+                    top:'22%',
                     left: '3%',
                     right: '4%',
                     bottom: '3%',
@@ -106,7 +107,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.travelersData[1].travelers.map(function(item){
-                            return item.areaSales[0].value;
+                            return item.areaSales[0].value / 10000;
                         })
                     },
                     {
@@ -114,7 +115,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.travelersData[1].travelers.map(function(item){
-                            return item.areaSales[1].value;
+                            return item.areaSales[1].value / 10000;
                         })
                     },
                     {
@@ -122,7 +123,7 @@ $(function() {
                         type:'bar',
                         stack: '广告',
                         data:res.travelersData[1].travelers.map(function(item){
-                            return item.areaSales[2].value;
+                            return item.areaSales[2].value / 10000;
                         })
                     }
                 ]
@@ -133,14 +134,13 @@ $(function() {
             var travelerPie = echarts.init(document.getElementById('travelerPie'));
             var travelerPieOption = {
                 title : {
-                    text: '销售张数',
-                    subtext: '南丁格尔玫瑰图',
+                    text: '客票张数及占比',
                     x:'center',
                     top:10
                 },
                 tooltip : {
                     trigger: 'item',
-                    formatter: "{b} : {c} ({d}%)"
+                    formatter: "{b} : {c}万 ({d}%)"
                 },
                 legend: {
                     x : 'center',
@@ -152,11 +152,21 @@ $(function() {
                     {
                         name:'面积模式',
                         type:'pie',
-                        radius : [30, 120],
+                        radius : ['30%','56%'],
                         center : ['50%', '50%'],
                         roseType : 'area',
                         startAngle: 130,
-                        data:res.travelersData[0].total
+                        itemStyle:{
+                            normal:{
+                                label:{
+                                    formatter:'{b}:{d}%'
+                                },
+                            },
+                        },
+                        data:res.travelersData[0].total.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                     }
                 ]
             };
@@ -246,7 +256,10 @@ $(function() {
 
             //柱状图点击方法
             function travelersBar(data){
-                travelerPieOption.series[0].data = data.numberOfSheets;
+                travelerPieOption.series[0].data = data.numberOfSheets.map(function(item){
+                    var value = item.value / 10000
+                    return {name:item.name,value:value}
+                });
                 travelerPie = echarts.init(document.getElementById('travelerPie'));
                 travelerPie.setOption(travelerPieOption);
             }
@@ -265,13 +278,13 @@ $(function() {
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                if (allDate == undefined){return};
-                if (allDate[3] !== undefined) {
+                /*if (allDate == undefined){return};
+                if (allDate[3] !== undefined) {*/
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
                     var indexThree = $('.threeSelect').find('option:selected').attr('data-index');
-                    if (indexOne == '0') { //成都片区
+                    if (indexOne == '0' && indexTwo == '3' && indexThree == '0') { //成都片区
                         //柱状图
                         var spaceBarData = res.travelersData2[1].travelers
                         travelerBarOption.grid.bottom = '6%';
@@ -297,25 +310,28 @@ $(function() {
                             }],
                             travelerBarOption.xAxis[0].data = spaceBarData.map(function(item){return item.name})
                         travelerBarOption.series[0].data = spaceBarData.map(function(item){
-                            return item.areaSales[0].value;
+                            return item.areaSales[0].value / 10000;
                         })
                         travelerBarOption.series[1].data = spaceBarData.map(function(item){
-                            return item.areaSales[1].value;
+                            return item.areaSales[1].value / 10000;
                         })
                         travelerBarOption.series[2].data = spaceBarData.map(function(item){
-                            return item.areaSales[2].value;
+                            return item.areaSales[2].value / 10000;
                         })
                         travelerBar.setOption(travelerBarOption);
 
                         //南丁格尔玫瑰图
-                        travelerPieOption.series[0].data = res.travelersData2[0].total
+                        travelerPieOption.series[0].data = res.travelersData2[0].total.map(function(item){
+                            var value = item.value / 10000
+                            return {name:item.name,value:value}
+                        })
                         travelerPie = echarts.init(document.getElementById('travelerPie'));
                         travelerPie.setOption(travelerPieOption);
                     } else if(indexThree == '-1'){
                         //默认页面数据
                     };
                 }
-            }
+            /*}*/
 
             pageDate()
 
