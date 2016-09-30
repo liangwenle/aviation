@@ -176,7 +176,8 @@ $(function() {
 
             //页面接收数据刷新
             function getQryStr(param) {
-                var queryArr = window.location.search.slice(1).split("&");
+                var str =parent.document.getElementById("right").src
+                var queryArr = str.substr(str.indexOf('?')).slice(1).split('&');
                 var tempArr, item, queryObject = {};
 
                 for (var i = 0; i < queryArr.length; i++) {
@@ -250,7 +251,7 @@ $(function() {
             //分页面按钮点击提交
             $('#dateSubmit2').on('click',function(){
                 var indexData = $('.oneSelect').find('option:selected').attr('data-index')
-                if(indexData == '-1'){alert('请先选择区域!!!')};
+                if(indexData == '-1'){alert('请先选择区域!!!'); return};
                 pageDate()
             })
 
@@ -278,8 +279,7 @@ $(function() {
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                /*if (allDate == undefined){return};
-                if (allDate[3] !== undefined) {*/
+                if (allDate[3] !== undefined) {
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
@@ -327,14 +327,12 @@ $(function() {
                         })
                         travelerPie = echarts.init(document.getElementById('travelerPie'));
                         travelerPie.setOption(travelerPieOption);
-                    } else if(indexThree == '-1'){
-                        //默认页面数据
+                    } else{
+                        alert('请选择3U、成都片区、成都营业厅再进行查询，谢谢!!!');
                     };
+                }else{
+                    alert('请选择四个时间段再进行查询，谢谢!!!');
                 }
-            /*}*/
-
-            pageDate()
-
-
+            }
         })
 })

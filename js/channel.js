@@ -3,13 +3,7 @@ $(function () {
         .then(function (res) {
             var provinces = res.selectOne;
             var allDate;
-            //处理数据单位
-            function million(data){
-                data.map(function(item){
-                    var nameValue = item.value / 10000
-                    return {name:item.name,value:nameValue}
-                })
-            }
+
             //三级下拉菜单
             var options = provinces.map(function (item, index) {
                 return '<option value="' + item.value + '" data-index="' + index + '">' + item.name + '</option>';
@@ -316,7 +310,9 @@ $(function () {
 
             //页面接收数据刷新
             function getQryStr(param) {
-                var queryArr = window.location.search.slice(1).split("&");
+                var str =parent.document.getElementById("right").src
+                var queryArr = str.substr(str.indexOf('?')).slice(1).split('&');
+                //var queryArr = window.location.search.slice(1).split("&");
                 var tempArr, item, queryObject = {};
 
                 for (var i = 0; i < queryArr.length; i++) {
@@ -369,7 +365,6 @@ $(function () {
                             }
                         }
                     }
-                    console.log(xsStartRQ, xsEndRQ, hdStartRQ, hdEndRQ)
                     return [xsStartRQ, xsEndRQ, hdStartRQ, hdEndRQ];
                 }
                 var receive = allselectDate()
@@ -394,8 +389,54 @@ $(function () {
                 pageDate()
             })
 
-            //饼图点击方法
+            //三级分销点击事件
+            channel_threeTopPie.on('click', function (param) {
+                var dataIndex = param.dataIndex;
+                var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
+
+                    if(window.flag == 1) {
+                        if (indexOne == '0') {
+                            threeTopPie_option.series[0].data = res.structure2[0].agent.map(function(item){
+                                var value = item.value / 10000
+                                return {name:item.name,value:value}
+                            });
+                        }else{
+                            threeTopPie_option.series[0].data = res.structure[0].agent.map(function(item){
+                                var value = item.value / 10000
+                                return {name:item.name,value:value}
+                            });
+                        }
+                        window.flag = 0;
+                    }else{
+                        if(dataIndex == 1){
+                            if (indexOne == '0') {
+                                window.flag = 1;
+                                var data = res.structure2[0].agent[dataIndex].platform
+                                travelersBar(dataIndex, data);
+                            } else {
+                                window.flag = 1;
+                                var data = res.structure[0].agent[dataIndex].platform
+                                travelersBar(dataIndex, data);
+                            }
+                        }
+                    }
+                channel_threeTopPie.setOption(threeTopPie_option);
+            })
+
+            //三级分销点击方法
             function travelersBar(index,data){
+                if (index == 1) {
+                    threeTopPie_option.series[0].data =data.map(function(item){
+                        var value = item.value / 10000
+                        return {name:item.name,value:value}
+                    });
+                }else{
+                    return;
+                }
+                channel_threeTopPie.setOption(threeTopPie_option);
+            }
+            //二级直销点击方法
+            function travelersBar2(index,data){
                 if (index == 0) {
                     threeBottomPie_option.series[0].data =data.website.map(function(item){
                         var value = item.value / 10000
@@ -411,23 +452,22 @@ $(function () {
                 }
                 channel_threeBottomPie.setOption(threeBottomPie_option);
             }
-            //channel_twoBottomPie点击事件
+            //二级直销点击事件
             channel_twoBottomPie.on('click', function (param) {
                 var dataIndex = param.dataIndex;
                 var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                 if(indexOne == '0'){
                     var data = res.structure2[0].directChannel[dataIndex]
-                    travelersBar(dataIndex,data);
+                    travelersBar2(dataIndex,data);
                 }else{
                     var data = res.structure[0].directChannel[dataIndex]
-                    travelersBar(dataIndex,data);
+                    travelersBar2(dataIndex,data);
                 }
             })
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                //if (allDate == undefined){return};
-                /*if (allDate[3] !== undefined) {*/
+                if (allDate[3] !== undefined) {
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
@@ -461,20 +501,20 @@ $(function () {
                             var value = item.value / 10000
                             return {name:item.name,value:value}
                         })
-
                         channel_onePie.setOption(onePie_option);
                         channel_twoTopPie.setOption(twoTopPie_option);
                         channel_threeTopPie.setOption(threeTopPie_option);
                         channel_twoBottomPie.setOption(twoBottomPie_option);
                         channel_threeBottomPie.setOption(threeBottomPie_option);
-
                     } else{
-                        //默认数据
+                        alert('请选择3U、成都片区、成都营业厅再进行查询，谢谢!!!');
                     }
+                }else{
+                    alert('请选择四个时间段再进行查询，谢谢!!!');
                 }
-            /*}*/
+            }
 
-            pageDate()
+            /*pageDate()*/
 
 
         })

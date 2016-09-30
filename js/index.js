@@ -15,7 +15,6 @@ $(function () {
         $('#lanPos').css('top', $(this).offset().top - topHeight);
             /*var $currentDIV = $(this).children('ul');
             $currentDIV.slideDown(200);  //二级菜单显示*/
-
     }, function () {
         $('#lanPos').css('top', $('.default').offset().top - topHeight);
         var $currentDIV = $(this).children('ul');
@@ -34,7 +33,7 @@ $(function () {
                 $('.nav > li').eq(i).children('a').addClass('left' + i);
             }
         }
-        /*allFilter();*/
+        allFilter();
     });
     /*鼠标经过显示二级菜单*/
     /*$('.nav > li').each(function(){
