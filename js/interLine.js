@@ -7,7 +7,6 @@ $(function() {
         //一级饼图
         var interLinePie = echarts.init(document.getElementById('interLinePie'));
         var interOption = {
-            backgroundColor: '#fff',
             title : {
                 text: '单/联程收入及占比',
                 x:'left',
@@ -61,6 +60,98 @@ $(function() {
                 window.flag = 1;
                 var data_index = param.dataIndex;
                 if (data_index == 1) {
+                    //创建饼图
+                    $('#interLinePie').css({
+                        width:'100%',
+                        height:'50%'
+                    })
+                    $('#interLinePie2').css({
+                        width:'100%',
+                        height:'50%'
+                    })
+                    var interLinePie2 = echarts.init(document.getElementById('interLinePie2'));
+                    var interLinePie = echarts.init(document.getElementById('interLinePie'));
+                    var inter2Option = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c}万 ({d}%)"
+                        },
+                        series: [
+                            {
+                                name:'川航',
+                                type:'pie',
+                                radius: ['40%', '55%'],
+                                center:['50%','60%'],
+                                startAngle:180,
+                                label: {
+                                    normal: {
+                                        textStyle: {
+                                            fontSize: '14',
+                                            fontWeight: 'bold'
+                                        }
+                                    },
+                                },
+                                itemStyle:{
+                                    normal:{
+                                        label:{
+                                            formatter:'{b}:{d}%'
+                                        },
+                                    },
+                                },
+                                labelLine:{
+                                    normal:{
+                                        length:8,
+                                        length2:5,
+                                    },
+                                },
+                                data:[
+                                    {name:'本地始发',value:500},
+                                    {name:'异地始发',value:300}
+                                ]
+                            }
+                        ]
+                    };
+                    var interOption = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c}万 ({d}%)"
+                        },
+                        series: [
+                            {
+                                name:'川航',
+                                type:'pie',
+                                radius: ['40%', '55%'],
+                                center:['50%','45%'],
+                                startAngle:180,
+                                label: {
+                                    normal: {
+                                        textStyle: {
+                                            fontSize: '14',
+                                            fontWeight: 'bold'
+                                        }
+                                    },
+                                },
+                                itemStyle:{
+                                    normal:{
+                                        label:{
+                                            formatter:'{b}:{d}%'
+                                        },
+                                    },
+                                },
+                                labelLine:{
+                                    normal:{
+                                        length:8,
+                                        length2:5,
+                                    },
+                                },
+                                data:res.interLineData[0].interLinePie.map(function(item){
+                                    var value = item.value / 10000
+                                    return {name:item.name,value:value}
+                                })
+                            }
+                        ]
+                    };
+                    interLinePie2.setOption(inter2Option);
                     interOption.series[0].data = res.interLineData[0].interLinePie[1].process.map(function(item){
                         var value = item.value / 10000
                         return {name:item.name,value:value}

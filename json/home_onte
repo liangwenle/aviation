@@ -37,6 +37,9 @@ provinceIevel2:选择时间段七大地区
 
 
 //渠道结构分析页面
+
+links:桑基图
+nodes:桑基图
 structure:结构默认数据
 totalRevenue:总收入
 direct:直销总收入
@@ -62,7 +65,7 @@ direct:直销总收入
     directChannel:直销渠道
         website:三级饼图
 
-运价结构分析
+渠道运价结构分析
 tariffsData:默认数据
     area:地区
         tariff:运价

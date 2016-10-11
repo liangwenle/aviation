@@ -56,7 +56,7 @@ $(function() {
             var spaceBarOption = {
                 title : {
                     text: '舱位销售收入',
-                    left:'left',
+                    left:10,
                     top:10
                 },
                 tooltip : {
@@ -64,12 +64,12 @@ $(function() {
                     axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                         type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
                     },
-                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）<br />{a2}: {c2}'+'（万）<br />{a3}: {c3}'+'（万）<br />{a4}: {c4}'+'（万）<br />{a5}: {c5}'+'（万）<br />{a6}: {c6}'+'（万）<br />{a7}: {c7}'+'（万）'
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）<br />{a2}: {c2}'+'（万）<br />{a3}: {c3}'+'（万）<br />{a4}: {c4}'+'（万）<br />{a5}: {c5}'+'（万）'
                 },
                 legend: {
-                    left:150,
-                    top:13,
-                    data:['头等舱','头等舱及其子舱','替代舱位','经济舱位','国际中转舱位','免票舱位','国际头等舱','其他舱位']
+                    right:10,
+                    top:45,
+                    data:['头等舱','经济舱高舱','经济舱中等舱位','经济舱低价舱位','替代舱位','其他舱位']
                 },
                 grid: {
                     top:'22%',
@@ -102,7 +102,7 @@ $(function() {
                         })
                     },
                     {
-                        name:'头等舱及其子舱',
+                        name:'经济舱高舱',
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function(item){
@@ -110,7 +110,7 @@ $(function() {
                         })
                     },
                     {
-                        name:'替代舱位',
+                        name:'经济舱中等舱位',
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function(item){
@@ -118,7 +118,7 @@ $(function() {
                         })
                     },
                     {
-                        name: '经济舱位',
+                        name: '经济舱低价舱位',
                         type: 'bar',
                         stack: '广告',
                         data: res.spaceData[1].travelers.map(function (item) {
@@ -126,7 +126,7 @@ $(function() {
                         })
                     },
                     {
-                        name:'国际中转舱位',
+                        name:'替代舱位',
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function (item) {
@@ -134,29 +134,13 @@ $(function() {
                         })
                     },
                     {
-                        name:'免票舱位',
+                        name:'其他舱位',
                         type:'bar',
                         stack: '广告',
                         data:res.spaceData[1].travelers.map(function (item) {
                             return item.areaSales[5].value / 10000;
                         })
-                    },
-                    {
-                        name:'国际头等舱',
-                        type:'bar',
-                        stack: '广告',
-                        data:res.spaceData[1].travelers.map(function (item) {
-                            return item.areaSales[6].value / 10000;
-                        })
-                    },
-                    {
-                        name:'其他舱位',
-                        type:'bar',
-                        stack: '广告',
-                        data:res.spaceData[1].travelers.map(function (item) {
-                            return item.areaSales[7].value / 10000;
-                        })
-                    },
+                    }
                 ]
             };
             spaceBar.setOption(spaceBarOption);
@@ -308,7 +292,7 @@ $(function() {
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                if (allDate[3] !== undefined) {
+                /*if (allDate[3] !== undefined) {*/
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
@@ -327,7 +311,7 @@ $(function() {
                             {
                                 handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
                                 realtime: false,
-                                height:20,
+                                height:14,
                                 bottom:5,
                                 handleStyle: {
                                     color: '#fff',
@@ -356,12 +340,6 @@ $(function() {
                         spaceBarOption.series[5].data = spaceBarData.map(function(item){
                             return item.areaSales[5].value / 10000;
                         })
-                        spaceBarOption.series[6].data = spaceBarData.map(function(item){
-                            return item.areaSales[6].value / 10000;
-                        })
-                        spaceBarOption.series[7].data = spaceBarData.map(function(item){
-                            return item.areaSales[7].value / 10000;
-                        })
                         spaceBar.setOption(spaceBarOption);
 
                         //南丁格尔玫瑰图
@@ -374,9 +352,9 @@ $(function() {
                     } else{
                         alert('请选择3U、成都片区、成都营业厅再进行查询，谢谢!!!');
                     };
-                }else{
+                /*}else{
                     alert('请选择四个时间段再进行查询，谢谢!!!');
-                }
+                }*/
             }
         })
 })

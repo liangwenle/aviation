@@ -1,0 +1,69 @@
+@charset "utf-8";
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font-size:12px;
+}
+#scrollbar1 {
+	/*margin: 10px auto;
+	width: 520px;*/
+}
+.scrollbar {
+	width:85%;
+}
+.track {
+	background:#ddd;
+	height: 8px;
+	position: relative;
+	width: 100%;
+}
+.thumb {
+	background:#666;
+	cursor: pointer;
+	height: 8px;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+}
+.viewport {
+	height: 240px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.overview {
+	margin-left:-2px;
+	left: 0;
+	list-style: none outside none;
+	position: absolute;
+	top: 0;
+	width: 2000px;
+}
+.overview > table{
+	width:100%;
+}
+.overview td{
+	padding-right:10px;
+	text-align: right;
+}
+.scrollbar3_height{
+	height: 210px;
+}
+.scrollbar3_height>div{
+	width:1000px;
+}
+
+/*.use {
+	width:500px;
+	height:auto;
+	margin:30px auto;
+	color:#999;
+}
+.use p {
+	text-align:left;
+	color:#999;
+	line-height:180%;
+	text-indent:2em;
+}*/

@@ -6,258 +6,268 @@
     "selectProxy":"1256405",
     "allDate":[
         {
-            "date":"2016-8-1",
+            "date":"2016-10-4",
             "sales":"18324110",
             "proxy":"227628"
         },
         {
-            "date":"2016-8-2",
+            "date":"2016-10-5",
             "sales":"19422213",
             "proxy":"249022"
         },
         {
-            "date":"2016-8-3",
+            "date":"2016-10-6",
             "sales":"19596684",
             "proxy":"237864"
         },
         {
-            "date":"2016-8-4",
+            "date":"2016-10-7",
             "sales":"18774132",
             "proxy":"229095"
         },
         {
-            "date":"2016-8-5",
+            "date":"2016-10-8",
             "sales":"19315557",
             "proxy":"230349"
         },
         {
-            "date":"2016-8-6",
+            "date":"2016-10-9",
             "sales":"14401316",
             "proxy":"166074"
         },
         {
-            "date": "2016-8-7",
+            "date": "2016-10-10",
             "sales": "13183004",
             "proxy": "148765"
+        },
+        {
+            "date": "2016-10-11",
+            "sales": "14401316",
+            "proxy": "166074"
         }
     ],
     "allDate2":[
         {
-            "date": "2016-8-7",
-            "sales":"895210",
-            "proxy":"10323"
-        },
-        {
-            "date": "2016-8-8",
-            "sales":"2304471",
-            "proxy":"26730"
-        },
-        {
-            "date": "2016-8-9",
-            "sales": "1597920",
-            "proxy": "18019"
-        },
-        {
-            "date": "2016-8-10",
-            "sales":"1046920",
-            "proxy":"11730"
-        },
-        {
-            "date": "2016-8-11",
-            "sales": "1136815",
-            "proxy": "12105"
-        },
-        {
-            "date": "2016-8-12",
-            "sales": "782020",
-            "proxy": "8104"
-        },
-        {
-            "date": "2016-8-13",
-            "sales": "630075",
-            "proxy": "6702"
-        },
-        {
-            "date": "2016-8-14",
-            "sales": "525710",
-            "proxy": "5190"
-        },
-        {
-            "date": "2016-8-15",
-            "sales": "368950",
-            "proxy": "4419"
-        },
-        {
-            "date": "2016-8-16",
-            "sales": "331775",
-            "proxy": "3823"
-        },
-        {
-            "date": "2016-8-17",
-            "sales": "261790",
-            "proxy": "2701"
-        },
-        {
-            "date": "2016-8-18",
-            "sales": "231790",
-            "proxy": "2695"
-        },
-        {
-            "date": "2016-8-19",
+            "date": "2016-10-4",
             "sales": "201790",
             "proxy": "2081"
         },
         {
-            "date": "2016-8-20",
+            "date": "2016-10-5",
             "sales": "181790",
             "proxy": "2233"
         },
         {
-            "date": "2016-8-21",
+            "date": "2016-10-6",
             "sales": "208145",
             "proxy": "2034"
+        },
+        {
+            "date": "2016-10-7",
+            "sales":"895210",
+            "proxy":"10323"
+        },
+        {
+            "date": "2016-10-8",
+            "sales":"2304471",
+            "proxy":"26730"
+        },
+        {
+            "date": "2016-10-9",
+            "sales": "1597920",
+            "proxy": "18019"
+        },
+        {
+            "date": "2016-10-10",
+            "sales":"1046920",
+            "proxy":"11730"
+        },
+        {
+            "date": "2016-10-11",
+            "sales": "1136815",
+            "proxy": "12105"
+        },
+        {
+            "date": "2016-10-12",
+            "sales": "782020",
+            "proxy": "8104"
+        },
+        {
+            "date": "2016-10-13",
+            "sales": "630075",
+            "proxy": "6702"
+        },
+        {
+            "date": "2016-10-14",
+            "sales": "525710",
+            "proxy": "5190"
+        },
+        {
+            "date": "2016-10-15",
+            "sales": "368950",
+            "proxy": "4419"
+        },
+        {
+            "date": "2016-10-16",
+            "sales": "331775",
+            "proxy": "3823"
+        },
+        {
+            "date": "2016-10-17",
+            "sales": "261790",
+            "proxy": "2701"
+        },
+        {
+            "date": "2016-10-18",
+            "sales": "231790",
+            "proxy": "2695"
         }
     ],
     "selectDate":[
         {
-            "date":"2016-8-1",
+            "date":"2016-10-4",
             "sales":"16312645",
             "proxy":"202274"
         },
         {
-            "date":"2016-8-2",
+            "date":"2016-10-5",
             "sales":"16919703",
             "proxy":"215547"
         },
         {
-            "date":"2016-8-3",
+            "date":"2016-10-6",
             "sales":"16820684",
             "proxy":"203591"
         },
         {
-            "date":"2016-8-4",
+            "date":"2016-10-7",
             "sales":"15879595",
             "proxy":"190997"
         },
         {
-            "date":"2016-8-5",
+            "date":"2016-10-8",
             "sales":"16360977",
             "proxy":"189909"
         },
         {
-            "date":"2016-8-6",
+            "date":"2016-10-9",
             "sales":"12008648",
             "proxy":"135198"
         },
         {
-            "date": "2016-8-7",
+            "date": "2016-10-10",
             "sales": "10723420",
             "proxy": "118889"
+        },
+        {
+            "date":"2016-10-11",
+            "sales":"12008648",
+            "proxy":"135198"
         }
     ],
     "selectDate2":[
         {
-            "date": "2016-8-1",
+            "date": "2016-10-1",
             "sales":"1348230",
             "proxy":"18215"
         },
         {
-            "date": "2016-8-2",
+            "date": "2016-10-2",
             "sales":"4374355",
             "proxy":"60570"
         },
         {
-            "date": "2016-8-3",
+            "date": "2016-10-3",
             "sales":"6702575",
             "proxy":"91725"
         },
         {
-            "date": "2016-8-4",
+            "date": "2016-10-4",
             "sales":"8388205",
             "proxy":"110608"
         },
         {
-            "date": "2016-8-5",
+            "date": "2016-10-5",
             "sales":"9380460",
             "proxy":"109759"
         },
         {
-            "date": "2016-8-6",
+            "date": "2016-10-6",
             "sales":"9952273",
             "proxy":"114413"
         },
         {
-            "date": "2016-8-7",
+            "date": "2016-10-7",
             "sales":"11046600",
             "proxy":"123957"
         },
         {
-            "date": "2016-8-8",
+            "date": "2016-10-8",
             "sales":"10471314",
             "proxy":"118442"
         },
         {
-            "date": "2016-8-9",
+            "date": "2016-10-9",
             "sales": "8318565",
             "proxy": "96295"
         },
         {
-            "date": "2016-8-10",
+            "date": "2016-10-10",
             "sales":"6348073",
             "proxy":"69606"
         },
         {
-            "date": "2016-8-11",
+            "date": "2016-10-11",
             "sales": "5105450",
             "proxy": "59328"
         },
         {
-            "date": "2016-8-12",
+            "date": "2016-10-12",
             "sales": "4256558",
             "proxy": "50746"
         },
         {
-            "date": "2016-8-13",
+            "date": "2016-10-13",
             "sales": "3744775",
             "proxy": "45259"
         },
         {
-            "date": "2016-8-14",
+            "date": "2016-10-14",
             "sales": "3367665",
             "proxy": "37663"
         },
         {
-            "date": "2016-8-15",
+            "date": "2016-10-15",
             "sales": "2407135",
             "proxy": "29491"
         },
         {
-            "date": "2016-8-16",
+            "date": "2016-10-16",
             "sales": "1953920",
             "proxy": "23312"
         },
         {
-            "date": "2016-8-17",
+            "date": "2016-10-17",
             "sales": "1646844",
             "proxy": "19763"
         },
         {
-            "date": "2016-8-18",
+            "date": "2016-10-18",
             "sales": "1652560",
             "proxy": "22103"
         },
         {
-            "date": "2016-8-19",
+            "date": "2016-10-19",
             "sales": "1477045",
             "proxy": "18033"
         },
         {
-            "date": "2016-8-20",
+            "date": "2016-10-20",
             "sales": "1603390",
             "proxy": "20378"
         },
         {
-            "date": "2016-8-21",
+            "date": "2016-10-21",
             "sales": "1479680",
             "proxy": "16739"
         }
@@ -6567,7 +6577,6 @@
         }
     ],
 
-
     "provinceIevel": [
         {
             "name":"华东片区",
@@ -12873,6 +12882,149 @@
         }
     ],
 
+    "links":[
+        {
+            "source":"渠道结构分析",
+            "target":"分销收入",
+            "value":"20000"
+        },
+        {
+            "source":"分销收入",
+            "target":"本地销售收入",
+            "value":"8000"
+        },
+        {
+            "source":"分销收入",
+            "target":"异地销售收入",
+            "value":"4000"
+        },
+        {
+            "source":"分销收入",
+            "target":"C平台自营销售收入",
+            "value":"5000"
+        },
+        {
+            "source":"分销收入",
+            "target":"准入代理人销售收入",
+            "value":"3000"
+        },
+        {
+            "source":"渠道结构分析",
+            "target":"直销收入",
+            "value":"70000"
+        },
+        {
+            "source":"直销收入",
+            "target":"官网自有渠道",
+            "value":"10000"
+        },
+        {
+            "source":"官网自有渠道",
+            "target":"非会员",
+            "value":"1000"
+        },
+        {
+            "source":"官网自有渠道",
+            "target":"会员",
+            "value":"4000"
+        },
+        {
+            "source":"官网自有渠道",
+            "target":"APP",
+            "value":"3000"
+        },
+        {
+            "source":"官网自有渠道",
+            "target":"微信",
+            "value":"2000"
+        },
+        {
+            "source":"直销收入",
+            "target":"商务卡",
+            "value":"13000"
+        },
+        {
+            "source":"直销收入",
+            "target":"直连",
+            "value":"7000"
+        },
+        {
+            "source":"直连",
+            "target":"淘宝",
+            "value":"1000"
+        },
+        {
+            "source":"直连",
+            "target":"同程",
+            "value":"2500"
+        },
+        {
+            "source":"直连",
+            "target":"携程",
+            "value":"2500"
+        },
+        {
+            "source":"直连",
+            "target":"航班管家",
+            "value":"1000"
+        },
+        {
+            "source":"直销收入",
+            "target":"大客户",
+            "value":"12000"
+        },
+        {
+            "source":"大客户",
+            "target":"官网大客户",
+            "value":"8000"
+        },
+        {
+            "source":"大客户",
+            "target":"自有大客户",
+            "value":"4000"
+        },
+        {
+            "source":"直销收入",
+            "target":"呼叫中心",
+            "value":"8000"
+        },
+        {
+            "source":"直销收入",
+            "target":"直属柜台出票",
+            "value":"11000"
+        },
+        {
+            "source":"直销收入",
+            "target":"营业部团队室",
+            "value":"9000"
+        }
+    ],
+    "nodes":[
+        {"name":"渠道结构分析","value":"30000"},
+        {"name":"分销收入","value":"20000"},
+        {"name":"本地销售收入","value":"8000"},
+        {"name":"异地销售收入","value":"4000"},
+        {"name":"C平台自营销售收入","value":"5000"},
+        {"name":"准入代理人销售收入","value":"3000"},
+        {"name":"直销收入","value":"70000"},
+        {"name":"官网自有渠道","value":"10000"},
+        {"name":"非会员","value":"1000"},
+        {"name":"会员","value":"4000"},
+        {"name":"APP","value":"3000"},
+        {"name":"微信","value":"2000"},
+        {"name":"商务卡","value":"13000"},
+        {"name":"直连","value":"7000"},
+        {"name":"淘宝","value":"1000"},
+        {"name":"同程","value":"2500"},
+        {"name":"携程","value":"2500"},
+        {"name":"航班管家","value":"1000"},
+        {"name":"大客户","value":"12000"},
+        {"name":"官网大客户","value":"8000"},
+        {"name":"自有大客户","value":"4000"},
+        {"name":"呼叫中心","value":"8000"},
+        {"name":"直属柜台出票","value":"11000"},
+        {"name":"营业部团队室","value":"9000"}
+    ],
 
     "structure":[
         {
@@ -13008,22 +13160,23 @@
                         {"name":"团体","value":1049}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":4693360},
-                        {"name":"折上折","value":1249860},
-                        {"name":"其他","value":10376570}
+                        {"name":"折扣运价","value":4693360},
+                        {"name":"优惠券","value":1249860},
+                        {"name":"正常运价","value":10376570}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":5021},
-                        {"name":"折上折","value":1495},
-                        {"name":"其他","value":8916}
+                        {"name":"折扣运价","value":5021},
+                        {"name":"优惠券","value":1495},
+                        {"name":"正常运价","value":8916}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1011.2},
                         {"name":"团体","value":1754.04}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":940.87},
-                        {"name":"折上折","value":836.92}
+                        {"name":"折扣运价","value":940.87},
+                        {"name":"优惠券","value":836.92},
+                        {"name":"正常运价","value":891.6}
                     ]
                 },
                 {
@@ -13037,22 +13190,23 @@
                         {"name":"团体","value":1147}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":6100490},
-                        {"name":"折上折","value":2639960},
-                        {"name":"其他","value":12439158}
+                        {"name":"折扣运价","value":6100490},
+                        {"name":"优惠券","value":2639960},
+                        {"name":"正常运价","value":12439158}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":7097},
-                        {"name":"折上折","value":3182},
-                        {"name":"其他","value":13656}
+                        {"name":"折扣运价","value":7097},
+                        {"name":"优惠券","value":3182},
+                        {"name":"正常运价","value":13656}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":883.89},
                         {"name":"团体","value":997.88}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":865.8},
-                        {"name":"折上折","value":831.56}
+                        {"name":"折扣运价","value":865.8},
+                        {"name":"优惠券","value":831.56},
+                        {"name":"正常运价","value":1365.6}
                     ]
                 },
                 {
@@ -13066,22 +13220,23 @@
                         {"name":"团体","value":405}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":6776720},
-                        {"name":"折上折","value":800680},
-                        {"name":"其他","value":8922100}
+                        {"name":"折扣运价","value":6776720},
+                        {"name":"优惠券","value":800680},
+                        {"name":"正常运价","value":8922100}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":6247},
-                        {"name":"折上折","value":801},
-                        {"name":"其他","value":7409}
+                        {"name":"折扣运价","value":6247},
+                        {"name":"优惠券","value":801},
+                        {"name":"正常运价","value":7409}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1109.6},
                         {"name":"团体","value":2511.63}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1087.25},
-                        {"name":"折上折","value":1003.19}
+                        {"name":"折扣运价","value":1087.25},
+                        {"name":"优惠券","value":1003.19},
+                        {"name":"正常运价","value":740.9}
                     ]
                 },
                 {
@@ -13095,22 +13250,23 @@
                         {"name":"团体","value":392}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":7734460},
-                        {"name":"折上折","value":1182150},
-                        {"name":"其他","value":17626907}
+                        {"name":"折扣运价","value":7734460},
+                        {"name":"优惠券","value":1182150},
+                        {"name":"正常运价","value":17626907}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":6019},
-                        {"name":"折上折","value":1029},
-                        {"name":"其他","value":14545}
+                        {"name":"折扣运价","value":6019},
+                        {"name":"优惠券","value":1029},
+                        {"name":"正常运价","value":14545}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1232.42},
                         {"name":"团体","value":1659.26}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1292.44},
-                        {"name":"折上折","value":1157.5}
+                        {"name":"折扣运价","value":1292.44},
+                        {"name":"优惠券","value":1157.5},
+                        {"name":"正常运价","value":1454.5}
                     ]
                 },
                 {
@@ -13124,22 +13280,23 @@
                         {"name":"团体","value":221}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":4249120},
-                        {"name":"折上折","value":0},
-                        {"name":"其他","value":5648230}
+                        {"name":"折扣运价","value":4249120},
+                        {"name":"优惠券","value":0},
+                        {"name":"正常运价","value":5648230}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":4329},
-                        {"name":"折上折","value":0},
-                        {"name":"其他","value":5237}
+                        {"name":"折扣运价","value":4329},
+                        {"name":"优惠券","value":0},
+                        {"name":"正常运价","value":5237}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1021.23},
                         {"name":"团体","value":1659.26}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":981.77},
-                        {"name":"折上折","value":1114.77}
+                        {"name":"折扣运价","value":981.77},
+                        {"name":"优惠券","value":1114.77},
+                        {"name":"正常运价","value":523.7}
                     ]
                 },
                 {
@@ -13153,22 +13310,23 @@
                         {"name":"团体","value":177}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":1956320},
-                        {"name":"折上折","value":1677530},
-                        {"name":"其他","value":4815080}
+                        {"name":"折扣运价","value":1956320},
+                        {"name":"优惠券","value":1677530},
+                        {"name":"正常运价","value":4815080}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":2143},
-                        {"name":"折上折","value":1775},
-                        {"name":"其他","value":5068}
+                        {"name":"折扣运价","value":2143},
+                        {"name":"优惠券","value":1775},
+                        {"name":"正常运价","value":5068}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":935.37},
                         {"name":"团体","value":1411.19}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":913.75},
-                        {"name":"折上折","value":951.14}
+                        {"name":"折扣运价","value":913.75},
+                        {"name":"优惠券","value":951.14},
+                        {"name":"正常运价","value":506.8}
                     ]
                 },
                 {
@@ -13182,35 +13340,36 @@
                         {"name":"团体","value":734}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":4404400},
-                        {"name":"折上折","value":0},
-                        {"name":"其他","value":6308140}
+                        {"name":"折扣运价","value":4404400},
+                        {"name":"优惠券","value":0},
+                        {"name":"正常运价","value":6308140}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":4893},
-                        {"name":"折上折","value":0},
-                        {"name":"其他","value":6056}
+                        {"name":"折扣运价","value":4893},
+                        {"name":"优惠券","value":0},
+                        {"name":"正常运价","value":6056}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":957.89},
                         {"name":"团体","value":1353.11}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":962.37},
-                        {"name":"折上折","value":905.83}
+                        {"name":"折扣运价","value":962.37},
+                        {"name":"优惠券","value":905.83},
+                        {"name":"正常运价","value":605.6}
                     ]
                 }
 
             ],
             "tariffPie":[
-                {"name":"明折明扣","value":38126570},
-                {"name":"折上折","value":7550180},
-                {"name":"其他","value":67850865}
+                {"name":"折扣运价","value":38126570},
+                {"name":"优惠券","value":7550180},
+                {"name":"正常运价","value":67850865}
             ],
             "numberPie":[
-                {"name":"明折明扣","value":37723},
-                {"name":"折上折","value":8282},
-                {"name":"其他","value":62350}
+                {"name":"折扣运价","value":37723},
+                {"name":"优惠券","value":8282},
+                {"name":"正常运价","value":62350}
             ]
         }
     ],
@@ -13228,22 +13387,23 @@
                         {"name":"团体","value":66}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":768090},
-                        {"name":"折上折","value":208280},
-                        {"name":"其他","value":1936460}
+                        {"name":"折扣运价","value":768090},
+                        {"name":"优惠券","value":208280},
+                        {"name":"正常运价","value":1936460}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":529},
-                        {"name":"折上折","value":151},
-                        {"name":"其他","value":1405}
+                        {"name":"折扣运价","value":529},
+                        {"name":"优惠券","value":151},
+                        {"name":"正常运价","value":1405}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1377.18},
                         {"name":"团体","value":2004.39}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1451.96},
-                        {"name":"折上折","value":1379.33}
+                        {"name":"折扣运价","value":1451.96},
+                        {"name":"优惠券","value":1379.33},
+                        {"name":"正常运价","value":1405}
                     ]
                 },
                 {
@@ -13257,22 +13417,23 @@
                         {"name":"团体","value":0}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":248520},
-                        {"name":"折上折","value":68050},
-                        {"name":"其他","value":1096575}
+                        {"name":"折扣运价","value":248520},
+                        {"name":"优惠券","value":68050},
+                        {"name":"正常运价","value":1096575}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":188},
-                        {"name":"折上折","value":0},
-                        {"name":"其他","value":1030}
+                        {"name":"折扣运价","value":188},
+                        {"name":"优惠券","value":0},
+                        {"name":"正常运价","value":1030}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1160.21},
                         {"name":"团体","value":0}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1321.91},
-                        {"name":"折上折","value":1450.98}
+                        {"name":"折扣运价","value":1321.91},
+                        {"name":"优惠券","value":1450.98},
+                        {"name":"正常运价","value":1030}
                     ]
                 },
                 {
@@ -13286,22 +13447,23 @@
                         {"name":"团体","value":0}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":305520},
-                        {"name":"折上折","value":227070},
-                        {"name":"其他","value":926860}
+                        {"name":"折扣运价","value":305520},
+                        {"name":"优惠券","value":227070},
+                        {"name":"正常运价","value":926860}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":209},
-                        {"name":"折上折","value":158},
-                        {"name":"其他","value":699}
+                        {"name":"折扣运价","value":209},
+                        {"name":"优惠券","value":158},
+                        {"name":"正常运价","value":699}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1369.09},
                         {"name":"团体","value":0}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1461.82},
-                        {"name":"折上折","value":1254.04}
+                        {"name":"折扣运价","value":1461.82},
+                        {"name":"优惠券","value":1254.04},
+                        {"name":"正常运价","value":1030}
                     ]
                 },
                 {
@@ -13315,22 +13477,23 @@
                         {"name":"团体","value":0}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":188070},
-                        {"name":"折上折","value":58070},
-                        {"name":"其他","value":688430}
+                        {"name":"折扣运价","value":188070},
+                        {"name":"优惠券","value":58070},
+                        {"name":"正常运价","value":688430}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":175},
-                        {"name":"折上折","value":46},
-                        {"name":"其他","value":689}
+                        {"name":"折扣运价","value":175},
+                        {"name":"优惠券","value":46},
+                        {"name":"正常运价","value":689}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1027},
                         {"name":"团体","value":0}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1074.68},
-                        {"name":"折上折","value":1262.39}
+                        {"name":"折扣运价","value":1074.68},
+                        {"name":"优惠券","value":1262.39},
+                        {"name":"正常运价","value":689}
                     ]
                 },
                 {
@@ -13344,22 +13507,23 @@
                         {"name":"团体","value":12}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":139580},
-                        {"name":"折上折","value":41540},
-                        {"name":"其他","value":688150}
+                        {"name":"折扣运价","value":139580},
+                        {"name":"优惠券","value":41540},
+                        {"name":"正常运价","value":688150}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":127},
-                        {"name":"折上折","value":0},
-                        {"name":"其他","value":684}
+                        {"name":"折扣运价","value":127},
+                        {"name":"优惠券","value":0},
+                        {"name":"正常运价","value":684}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":1062.55},
                         {"name":"团体","value":1690.83}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1099.05},
-                        {"name":"折上折","value":990.11}
+                        {"name":"折扣运价","value":1099.05},
+                        {"name":"优惠券","value":990.11},
+                        {"name":"正常运价","value":684}
                     ]
                 },
                 {
@@ -13373,22 +13537,23 @@
                         {"name":"团体","value":21}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":379620},
-                        {"name":"折上折","value":63580},
-                        {"name":"其他","value":265746}
+                        {"name":"折扣运价","value":379620},
+                        {"name":"优惠券","value":63580},
+                        {"name":"正常运价","value":265746}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":368},
-                        {"name":"折上折","value":74},
-                        {"name":"其他","value":304}
+                        {"name":"折扣运价","value":368},
+                        {"name":"优惠券","value":74},
+                        {"name":"正常运价","value":304}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":932.44},
                         {"name":"团体","value":1567.9}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1031.57},
-                        {"name":"折上折","value":859.18}
+                        {"name":"折扣运价","value":1031.57},
+                        {"name":"优惠券","value":859.18},
+                        {"name":"正常运价","value":589}
                     ]
                 },
                 {
@@ -13402,35 +13567,36 @@
                         {"name":"团体","value":15}
                     ],
                     "areatariffPie": [
-                        {"name":"明折明扣","value":101380},
-                        {"name":"折上折","value":167753},
-                        {"name":"其他","value":579562}
+                        {"name":"折扣运价","value":101380},
+                        {"name":"优惠券","value":167753},
+                        {"name":"正常运价","value":579562}
                     ],
                     "areaNumberPie": [
-                        {"name":"明折明扣","value":87},
-                        {"name":"折上折","value":0},
-                        {"name":"其他","value":567}
+                        {"name":"折扣运价","value":87},
+                        {"name":"优惠券","value":0},
+                        {"name":"正常运价","value":567}
                     ],
                     "fitGroup":[
                         {"name":"散客","value":784},
                         {"name":"团体","value":1918.66}
                     ],
                     "discounted":[
-                        {"name":"明折明扣","value":1165.28},
-                        {"name":"折上折","value":890.98}
+                        {"name":"折扣运价","value":1165.28},
+                        {"name":"优惠券","value":890.98},
+                        {"name":"正常运价","value":567}
                     ]
                 }
 
             ],
             "tariffPie":[
-                {"name":"明折明扣","value":2332630},
-                {"name":"折上折","value":834343},
-                {"name":"其他","value":13319625}
+                {"name":"折扣运价","value":2332630},
+                {"name":"优惠券","value":834343},
+                {"name":"正常运价","value":13319625}
             ],
             "numberPie":[
-                {"name":"明折明扣","value":1849},
-                {"name":"折上折","value":429},
-                {"name":"其他","value":5748}
+                {"name":"折扣运价","value":1849},
+                {"name":"优惠券","value":429},
+                {"name":"正常运价","value":5748}
             ]
         }
     ],
@@ -13439,9 +13605,9 @@
     "interLineData":[
         {
             "interLinePie":[
-                {"name":"单程","value":4263346},
+                {"name":"单段运价","value":4263346},
                 {
-                    "name":"联程",
+                    "name":"多段运价",
                     "value":105260,
                     "process":[
                         {"name":"LA","value":56620},
@@ -13541,14 +13707,12 @@
     "spaceData":[
         {
             "total":[
-                {"name":"头等舱","value":376},
-                {"name":"头等舱及其子舱","value":2607},
-                {"name":"替代舱位","value":6352},
-                {"name":"经济舱位","value":87676},
-                {"name":"国际中转舱位","value":10},
-                {"name":"免票舱位","value":346},
-                {"name":"国际头等舱","value":4},
-                {"name":"其他舱位","value":483}
+                {"name":"头等舱","value":976},
+                {"name":"经济舱高舱","value":2607},
+                {"name":"经济舱中等舱位","value":6352},
+                {"name":"经济舱低价舱位","value":9676},
+                {"name":"替代舱位","value":1099},
+                {"name":"其他舱位","value":4830}
             ]
         },
         {
@@ -13557,161 +13721,133 @@
                     "name": "华东片区",
                     "areaSales": [
                         {"name":"头等舱","value":37580},
-                        {"name":"头等舱及其子舱","value":435930},
-                        {"name":"替代舱位","value":1567600},
-                        {"name":"经济舱位","value":12832510},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":440},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":435930},
+                        {"name":"经济舱中等舱位","value":1567600},
+                        {"name":"经济舱低价舱位","value":2832510},
+                        {"name":"替代舱位","value":4400},
                         {"name":"其他舱位","value":109950}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":16},
-                        {"name":"头等舱及其子舱","value":245},
-                        {"name":"替代舱位","value":995},
-                        {"name":"经济舱位","value":12637},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":24},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":46}
+                        {"name":"头等舱","value":160},
+                        {"name":"经济舱高舱","value":245},
+                        {"name":"经济舱中等舱位","value":995},
+                        {"name":"经济舱低价舱位","value":2637},
+                        {"name":"替代舱位","value":740},
+                        {"name":"其他舱位","value":860}
                     ]
                 },
                 {
                     "name": "云贵渝片区",
                     "areaSales": [
                         {"name":"头等舱","value":137100},
-                        {"name":"头等舱及其子舱","value":708450},
-                        {"name":"替代舱位","value":1231468},
-                        {"name":"经济舱位","value":17371820},
-                        {"name":"国际中转舱位","value":2160},
-                        {"name":"免票舱位","value":4060},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":18330}
+                        {"name":"经济舱高舱","value":708450},
+                        {"name":"经济舱中等舱位","value":1231468},
+                        {"name":"经济舱低价舱位","value":1371820},
+                        {"name":"替代舱位","value":40600},
+                        {"name":"其他舱位","value":98330}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":59},
-                        {"name":"头等舱及其子舱","value":443},
-                        {"name":"替代舱位","value":1216},
-                        {"name":"经济舱位","value":20025},
-                        {"name":"国际中转舱位","value":2},
-                        {"name":"免票舱位","value":48},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":13}
+                        {"name":"头等舱","value":590},
+                        {"name":"经济舱高舱","value":443},
+                        {"name":"经济舱中等舱位","value":1216},
+                        {"name":"经济舱低价舱位","value":2025},
+                        {"name":"替代舱位","value":480},
+                        {"name":"其他舱位","value":1300}
                     ]
                 },
                 {
                     "name": "北方片区",
                     "areaSales": [
                         {"name":"头等舱","value":83270},
-                        {"name":"头等舱及其子舱","value":597410},
-                        {"name":"替代舱位","value":598080},
-                        {"name":"经济舱位","value":13328910},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":850},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":597410},
+                        {"name":"经济舱中等舱位","value":598080},
+                        {"name":"经济舱低价舱位","value":828910},
+                        {"name":"替代舱位","value":85000},
                         {"name":"其他舱位","value":388010}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":30},
-                        {"name":"头等舱及其子舱","value":323},
-                        {"name":"替代舱位","value":285},
-                        {"name":"经济舱位","value":12175},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":35},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":108}
+                        {"name":"头等舱","value":309},
+                        {"name":"经济舱高舱","value":1123},
+                        {"name":"经济舱中等舱位","value":285},
+                        {"name":"经济舱低价舱位","value":2175},
+                        {"name":"替代舱位","value":350},
+                        {"name":"其他舱位","value":1080}
                     ]
                 },
                 {
                     "name": "成都片区",
                     "areaSales": [
                         {"name":"头等舱","value":437250},
-                        {"name":"头等舱及其子舱","value":1406110},
-                        {"name":"替代舱位","value":2498394},
-                        {"name":"经济舱位","value":19536520},
-                        {"name":"国际中转舱位","value":5900},
-                        {"name":"免票舱位","value":13390},
-                        {"name":"国际头等舱","value":18240},
+                        {"name":"经济舱高舱","value":1406110},
+                        {"name":"经济舱中等舱位","value":1498394},
+                        {"name":"经济舱低价舱位","value":2536520},
+                        {"name":"替代舱位","value":133900},
                         {"name":"其他舱位","value":373960}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":135},
-                        {"name":"头等舱及其子舱","value":755},
-                        {"name":"替代舱位","value":1777},
-                        {"name":"经济舱位","value":16334},
-                        {"name":"国际中转舱位","value":4},
-                        {"name":"免票舱位","value":159},
-                        {"name":"国际头等舱","value":4},
-                        {"name":"其他舱位","value":270}
+                        {"name":"头等舱","value":1350},
+                        {"name":"经济舱高舱","value":1755},
+                        {"name":"经济舱中等舱位","value":1777},
+                        {"name":"经济舱低价舱位","value":4334},
+                        {"name":"替代舱位","value":1590},
+                        {"name":"其他舱位","value":2700}
                     ]
                 },
                 {
                     "name": "西北片区",
                     "areaSales": [
                         {"name":"头等舱","value":181760},
-                        {"name":"头等舱及其子舱","value":305490},
-                        {"name":"替代舱位","value":582090},
-                        {"name":"经济舱位","value":7908010},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":390},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":305490},
+                        {"name":"经济舱中等舱位","value":582090},
+                        {"name":"经济舱低价舱位","value":2008010},
+                        {"name":"替代舱位","value":39000},
                         {"name":"其他舱位","value":57180}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":65},
-                        {"name":"头等舱及其子舱","value":323},
-                        {"name":"替代舱位","value":662},
-                        {"name":"经济舱位","value":7836},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":14},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":33}
+                        {"name":"头等舱","value":650},
+                        {"name":"经济舱高舱","value":323},
+                        {"name":"经济舱中等舱位","value":662},
+                        {"name":"经济舱低价舱位","value":1836},
+                        {"name":"替代舱位","value":540},
+                        {"name":"其他舱位","value":730}
                     ]
                 },
                 {
                     "name": "中南片区",
                     "areaSales": [
                         {"name":"头等舱","value":36480},
-                        {"name":"头等舱及其子舱","value":321720},
-                        {"name":"替代舱位","value":257880},
-                        {"name":"经济舱位","value":6722500},
-                        {"name":"国际中转舱位","value":1350},
-                        {"name":"免票舱位","value":200},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"经济舱高舱","value":321720},
+                        {"name":"经济舱中等舱位","value":257880},
+                        {"name":"经济舱低价舱位","value":1622500},
+                        {"name":"替代舱位","value":13509},
+                        {"name":"其他舱位","value":200900}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":17},
-                        {"name":"头等舱及其子舱","value":201},
-                        {"name":"替代舱位","value":271},
-                        {"name":"经济舱位","value":7248},
-                        {"name":"国际中转舱位","value":1},
-                        {"name":"免票舱位","value":11},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":970},
+                        {"name":"经济舱高舱","value":1201},
+                        {"name":"经济舱中等舱位","value":2710},
+                        {"name":"经济舱低价舱位","value":3248},
+                        {"name":"替代舱位","value":1100},
+                        {"name":"其他舱位","value":1590}
                     ]
                 },
                 {
                     "name": "中原片区",
                     "areaSales": [
                         {"name":"头等舱","value":51190},
-                        {"name":"头等舱及其子舱","value":316840},
-                        {"name":"替代舱位","value":1048930},
-                        {"name":"经济舱位","value":8401910},
-                        {"name":"国际中转舱位","value":3580},
-                        {"name":"免票舱位","value":0},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":8150}
+                        {"name":"经济舱高舱","value":316840},
+                        {"name":"经济舱中等舱位","value":1048930},
+                        {"name":"经济舱低价舱位","value":3401910},
+                        {"name":"替代舱位","value":35800},
+                        {"name":"其他舱位","value":81500}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":20},
-                        {"name":"头等舱及其子舱","value":203},
-                        {"name":"替代舱位","value":944},
-                        {"name":"经济舱位","value":8692},
-                        {"name":"国际中转舱位","value":3},
-                        {"name":"免票舱位","value":23},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":5}
+                        {"name":"头等舱","value":305},
+                        {"name":"经济舱高舱","value":203},
+                        {"name":"经济舱中等舱位","value":1144},
+                        {"name":"经济舱低价舱位","value":2692},
+                        {"name":"替代舱位","value":530},
+                        {"name":"其他舱位","value":801}
                     ]
                 }
             ]
@@ -13720,14 +13856,12 @@
     "spaceData2":[
         {
             "total":[
-                {"name":"头等舱","value":94},
-                {"name":"头等舱及其子舱","value":568},
-                {"name":"替代舱位","value":974},
-                {"name":"经济舱位","value":13731},
-                {"name":"国际中转舱位","value":4},
-                {"name":"免票舱位","value":152},
-                {"name":"国际头等舱","value":0},
-                {"name":"其他舱位","value":117}
+                {"name":"头等舱","value":940},
+                {"name":"经济舱高舱","value":5680},
+                {"name":"经济舱中等舱位","value":9740},
+                {"name":"经济舱低价舱位","value":13731},
+                {"name":"替代舱位","value":1520},
+                {"name":"其他舱位","value":1170}
             ]
         },
         {
@@ -13736,298 +13870,246 @@
                     "name": "CTU-PEK",
                     "areaSales": [
                         {"name":"头等舱","value":14200},
-                        {"name":"头等舱及其子舱","value":210400},
-                        {"name":"替代舱位","value":132290},
-                        {"name":"经济舱位","value":2285960},
-                        {"name":"国际中转舱位","value":4600},
-                        {"name":"免票舱位","value":1010},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"经济舱高舱","value":10400},
+                        {"name":"经济舱中等舱位","value":32290},
+                        {"name":"经济舱低价舱位","value":85960},
+                        {"name":"替代舱位","value":10108},
+                        {"name":"其他舱位","value":39807}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":4},
-                        {"name":"头等舱及其子舱","value":109},
-                        {"name":"替代舱位","value":66},
-                        {"name":"经济舱位","value":16411641},
-                        {"name":"国际中转舱位","value":3},
-                        {"name":"免票舱位","value":25},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":504},
+                        {"name":"经济舱高舱","value":1109},
+                        {"name":"经济舱中等舱位","value":1660},
+                        {"name":"经济舱低价舱位","value":9641},
+                        {"name":"替代舱位","value":2509},
+                        {"name":"其他舱位","value":3000}
                     ]
                 },
                 {
                     "name": "CTU-LXA",
                     "areaSales": [
                         {"name":"头等舱","value":4560},
-                        {"name":"头等舱及其子舱","value":131900},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":1301250},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":0},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":1630}
+                        {"name":"经济舱高舱","value":1900},
+                        {"name":"经济舱中等舱位","value":11900},
+                        {"name":"经济舱低价舱位","value":31250},
+                        {"name":"替代舱位","value":5490},
+                        {"name":"其他舱位","value":8630}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":1},
-                        {"name":"头等舱及其子舱","value":74},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":967},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":3},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":1}
+                        {"name":"头等舱","value":107},
+                        {"name":"经济舱高舱","value":574},
+                        {"name":"经济舱中等舱位","value":700},
+                        {"name":"经济舱低价舱位","value":967},
+                        {"name":"替代舱位","value":309},
+                        {"name":"其他舱位","value":791}
                     ]
                 },
                 {
                     "name": "CTU-PVG",
                     "areaSales": [
                         {"name":"头等舱","value":7740},
-                        {"name":"头等舱及其子舱","value":78890},
-                        {"name":"替代舱位","value":124275},
-                        {"name":"经济舱位","value":989520},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":1760},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":480}
+                        {"name":"经济舱高舱","value":8890},
+                        {"name":"经济舱中等舱位","value":14275},
+                        {"name":"经济舱低价舱位","value":89520},
+                        {"name":"替代舱位","value":2760},
+                        {"name":"其他舱位","value":4808}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":2},
-                        {"name":"头等舱及其子舱","value":44},
-                        {"name":"替代舱位","value":104},
-                        {"name":"经济舱位","value":849},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":9},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":1}
+                        {"name":"头等舱","value":201},
+                        {"name":"经济舱高舱","value":414},
+                        {"name":"经济舱中等舱位","value":504},
+                        {"name":"经济舱低价舱位","value":849},
+                        {"name":"替代舱位","value":90},
+                        {"name":"其他舱位","value":661}
                     ]
                 },
                 {
                     "name": "CTU-SZX",
                     "areaSales": [
                         {"name":"头等舱","value":3400},
-                        {"name":"头等舱及其子舱","value":48820},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":723680},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":730},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"经济舱高舱","value":8820},
+                        {"name":"经济舱中等舱位","value":17600},
+                        {"name":"经济舱低价舱位","value":23680},
+                        {"name":"替代舱位","value":1730},
+                        {"name":"其他舱位","value":4980}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":2},
-                        {"name":"头等舱及其子舱","value":30},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":701},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":9},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":92},
+                        {"name":"经济舱高舱","value":330},
+                        {"name":"经济舱中等舱位","value":650},
+                        {"name":"经济舱低价舱位","value":701},
+                        {"name":"替代舱位","value":90},
+                        {"name":"其他舱位","value":430}
                     ]
                 },
                 {
                     "name": "CTU-CAN",
                     "areaSales": [
                         {"name":"头等舱","value":1650},
-                        {"name":"头等舱及其子舱","value":34510},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":675800},
-                        {"name":"国际中转舱位","value":1300},
-                        {"name":"免票舱位","value":0},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"经济舱高舱","value":34510},
+                        {"name":"经济舱中等舱位","value":10006},
+                        {"name":"经济舱低价舱位","value":75800},
+                        {"name":"替代舱位","value":5050},
+                        {"name":"其他舱位","value":9870}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":1},
-                        {"name":"头等舱及其子舱","value":24},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":618},
-                        {"name":"国际中转舱位","value":1},
-                        {"name":"免票舱位","value":7},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":61},
+                        {"name":"经济舱高舱","value":240},
+                        {"name":"经济舱中等舱位","value":400},
+                        {"name":"经济舱低价舱位","value":618},
+                        {"name":"替代舱位","value":97},
+                        {"name":"其他舱位","value":370}
                     ]
                 },
                 {
                     "name": "CTU-KMG",
                     "areaSales": [
                         {"name":"头等舱","value":28220},
-                        {"name":"头等舱及其子舱","value":28400},
-                        {"name":"替代舱位","value":26410},
-                        {"name":"经济舱位","value":614610},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":1100},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"经济舱高舱","value":28400},
+                        {"name":"经济舱中等舱位","value":26410},
+                        {"name":"经济舱低价舱位","value":64610},
+                        {"name":"替代舱位","value":4100},
+                        {"name":"其他舱位","value":7030}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":10},
-                        {"name":"头等舱及其子舱","value":21},
-                        {"name":"替代舱位","value":19},
-                        {"name":"经济舱位","value":663},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":20},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":140},
+                        {"name":"经济舱高舱","value":241},
+                        {"name":"经济舱中等舱位","value":419},
+                        {"name":"经济舱低价舱位","value":663},
+                        {"name":"替代舱位","value":240},
+                        {"name":"其他舱位","value":540}
                     ]
                 },
                 {
                     "name": "CTU-TAO",
                     "areaSales": [
                         {"name":"头等舱","value":10140},
-                        {"name":"头等舱及其子舱","value":35510},
-                        {"name":"替代舱位","value":84240},
-                        {"name":"经济舱位","value":471380},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":1720},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":3380}
+                        {"name":"经济舱高舱","value":35510},
+                        {"name":"经济舱中等舱位","value":54240},
+                        {"name":"经济舱低价舱位","value":71380},
+                        {"name":"替代舱位","value":8720},
+                        {"name":"其他舱位","value":13380}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":4},
-                        {"name":"头等舱及其子舱","value":21},
-                        {"name":"替代舱位","value":39},
-                        {"name":"经济舱位","value":320},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":11},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":2}
+                        {"name":"头等舱","value":40},
+                        {"name":"经济舱高舱","value":201},
+                        {"name":"经济舱中等舱位","value":309},
+                        {"name":"经济舱低价舱位","value":320},
+                        {"name":"替代舱位","value":110},
+                        {"name":"其他舱位","value":206}
                     ]
                 },
                 {
                     "name": "CTU-SZX",
                     "areaSales": [
                         {"name":"头等舱","value":3400},
-                        {"name":"头等舱及其子舱","value":48820},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":723680},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":730},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"经济舱高舱","value":48820},
+                        {"name":"经济舱中等舱位","value":7650},
+                        {"name":"经济舱低价舱位","value":23680},
+                        {"name":"替代舱位","value":1310},
+                        {"name":"其他舱位","value":9654}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":2},
-                        {"name":"头等舱及其子舱","value":30},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":701},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":9},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":201},
+                        {"name":"经济舱高舱","value":308},
+                        {"name":"经济舱中等舱位","value":601},
+                        {"name":"经济舱低价舱位","value":701},
+                        {"name":"替代舱位","value":90},
+                        {"name":"其他舱位","value":280}
                     ]
                 },
                 {
                     "name": "CTU-CAN",
                     "areaSales": [
                         {"name":"头等舱","value":1650},
-                        {"name":"头等舱及其子舱","value":34510},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":675800},
-                        {"name":"国际中转舱位","value":1300},
-                        {"name":"免票舱位","value":0},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"经济舱高舱","value":4510},
+                        {"name":"经济舱中等舱位","value":18200},
+                        {"name":"经济舱低价舱位","value":35800},
+                        {"name":"替代舱位","value":2090},
+                        {"name":"其他舱位","value":3050}
                     ],
                     "numberOfSheets": [
                         {"name":"头等舱","value":1},
-                        {"name":"头等舱及其子舱","value":24},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":618},
-                        {"name":"国际中转舱位","value":1},
-                        {"name":"免票舱位","value":7},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":24},
+                        {"name":"经济舱中等舱位","value":0},
+                        {"name":"经济舱低价舱位","value":618},
+                        {"name":"替代舱位","value":7},
                         {"name":"其他舱位","value":0}
                     ]
                 },
                 {
                     "name": "CTU-KMG",
                     "areaSales": [
-                        {"name":"头等舱","value":28220},
-                        {"name":"头等舱及其子舱","value":28400},
-                        {"name":"替代舱位","value":26410},
-                        {"name":"经济舱位","value":614610},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":1100},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":3400},
+                        {"name":"经济舱高舱","value":48820},
+                        {"name":"经济舱中等舱位","value":7650},
+                        {"name":"经济舱低价舱位","value":23680},
+                        {"name":"替代舱位","value":1310},
+                        {"name":"其他舱位","value":9654}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":10},
-                        {"name":"头等舱及其子舱","value":21},
-                        {"name":"替代舱位","value":19},
-                        {"name":"经济舱位","value":663},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":20},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":201},
+                        {"name":"经济舱高舱","value":308},
+                        {"name":"经济舱中等舱位","value":601},
+                        {"name":"经济舱低价舱位","value":701},
+                        {"name":"替代舱位","value":90},
+                        {"name":"其他舱位","value":280}
                     ]
                 },
                 {
                     "name": "CTU-TAO",
                     "areaSales": [
-                        {"name":"头等舱","value":10140},
-                        {"name":"头等舱及其子舱","value":35510},
-                        {"name":"替代舱位","value":84240},
-                        {"name":"经济舱位","value":471380},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":1720},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"头等舱","value":1140},
+                        {"name":"经济舱高舱","value":5510},
+                        {"name":"经济舱中等舱位","value":14240},
+                        {"name":"经济舱低价舱位","value":41380},
+                        {"name":"替代舱位","value":1720},
                         {"name":"其他舱位","value":3380}
                     ],
                     "numberOfSheets": [
                         {"name":"头等舱","value":4},
-                        {"name":"头等舱及其子舱","value":21},
-                        {"name":"替代舱位","value":39},
-                        {"name":"经济舱位","value":320},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":11},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":21},
+                        {"name":"经济舱中等舱位","value":39},
+                        {"name":"经济舱低价舱位","value":320},
+                        {"name":"替代舱位","value":11},
                         {"name":"其他舱位","value":2}
                     ]
                 },
                 {
                     "name": "CTU-PEK",
                     "areaSales": [
-                        {"name":"头等舱","value":14200},
-                        {"name":"头等舱及其子舱","value":210400},
-                        {"name":"替代舱位","value":132290},
-                        {"name":"经济舱位","value":2285960},
-                        {"name":"国际中转舱位","value":4600},
-                        {"name":"免票舱位","value":1010},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":7740},
+                        {"name":"经济舱高舱","value":8890},
+                        {"name":"经济舱中等舱位","value":14275},
+                        {"name":"经济舱低价舱位","value":49520},
+                        {"name":"替代舱位","value":2760},
+                        {"name":"其他舱位","value":4808}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":4},
-                        {"name":"头等舱及其子舱","value":109},
-                        {"name":"替代舱位","value":66},
-                        {"name":"经济舱位","value":16411641},
-                        {"name":"国际中转舱位","value":3},
-                        {"name":"免票舱位","value":25},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":201},
+                        {"name":"经济舱高舱","value":414},
+                        {"name":"经济舱中等舱位","value":504},
+                        {"name":"经济舱低价舱位","value":849},
+                        {"name":"替代舱位","value":90},
+                        {"name":"其他舱位","value":661}
                     ]
                 },
                 {
                     "name": "CTU-LXA",
                     "areaSales": [
                         {"name":"头等舱","value":4560},
-                        {"name":"头等舱及其子舱","value":131900},
+                        {"name":"经济舱高舱","value":11900},
+                        {"name":"经济舱中等舱位","value":10540},
+                        {"name":"经济舱低价舱位","value":31250},
                         {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":1301250},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":0},
-                        {"name":"国际头等舱","value":0},
                         {"name":"其他舱位","value":1630}
                     ],
                     "numberOfSheets": [
                         {"name":"头等舱","value":1},
-                        {"name":"头等舱及其子舱","value":74},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":967},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":3},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":74},
+                        {"name":"经济舱中等舱位","value":0},
+                        {"name":"经济舱低价舱位","value":967},
+                        {"name":"替代舱位","value":3},
                         {"name":"其他舱位","value":1}
                     ]
                 },
@@ -14035,115 +14117,95 @@
                     "name": "CTU-PVG",
                     "areaSales": [
                         {"name":"头等舱","value":7740},
-                        {"name":"头等舱及其子舱","value":78890},
-                        {"name":"替代舱位","value":124275},
-                        {"name":"经济舱位","value":989520},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":1760},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":8890},
+                        {"name":"经济舱中等舱位","value":24275},
+                        {"name":"经济舱低价舱位","value":59520},
+                        {"name":"替代舱位","value":1760},
                         {"name":"其他舱位","value":480}
                     ],
                     "numberOfSheets": [
                         {"name":"头等舱","value":2},
-                        {"name":"头等舱及其子舱","value":44},
-                        {"name":"替代舱位","value":104},
-                        {"name":"经济舱位","value":849},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":9},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":44},
+                        {"name":"经济舱中等舱位","value":104},
+                        {"name":"经济舱低价舱位","value":849},
+                        {"name":"替代舱位","value":9},
                         {"name":"其他舱位","value":1}
                     ]
                 },
                 {
                     "name": "CTU-SZX",
                     "areaSales": [
-                        {"name":"头等舱","value":3400},
-                        {"name":"头等舱及其子舱","value":48820},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":723680},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":730},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":7740},
+                        {"name":"经济舱高舱","value":8890},
+                        {"name":"经济舱中等舱位","value":9275},
+                        {"name":"经济舱低价舱位","value":39520},
+                        {"name":"替代舱位","value":2760},
+                        {"name":"其他舱位","value":4808}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":2},
-                        {"name":"头等舱及其子舱","value":30},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":701},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":9},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":201},
+                        {"name":"经济舱高舱","value":414},
+                        {"name":"经济舱中等舱位","value":504},
+                        {"name":"经济舱低价舱位","value":849},
+                        {"name":"替代舱位","value":90},
+                        {"name":"其他舱位","value":661}
                     ]
                 },
                 {
                     "name": "CTU-CAN",
                     "areaSales": [
                         {"name":"头等舱","value":1650},
-                        {"name":"头等舱及其子舱","value":34510},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":675800},
-                        {"name":"国际中转舱位","value":1300},
-                        {"name":"免票舱位","value":0},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"经济舱高舱","value":4510},
+                        {"name":"经济舱中等舱位","value":20870},
+                        {"name":"经济舱低价舱位","value":45800},
+                        {"name":"替代舱位","value":2050},
+                        {"name":"其他舱位","value":3060}
                     ],
                     "numberOfSheets": [
                         {"name":"头等舱","value":1},
-                        {"name":"头等舱及其子舱","value":24},
-                        {"name":"替代舱位","value":0},
-                        {"name":"经济舱位","value":618},
-                        {"name":"国际中转舱位","value":1},
-                        {"name":"免票舱位","value":7},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":24},
+                        {"name":"经济舱中等舱位","value":0},
+                        {"name":"经济舱低价舱位","value":618},
+                        {"name":"替代舱位","value":7},
                         {"name":"其他舱位","value":0}
                     ]
                 },
                 {
                     "name": "CTU-KMG",
                     "areaSales": [
-                        {"name":"头等舱","value":28220},
-                        {"name":"头等舱及其子舱","value":28400},
-                        {"name":"替代舱位","value":26410},
-                        {"name":"经济舱位","value":614610},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":1100},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":0}
+                        {"name":"头等舱","value":8220},
+                        {"name":"经济舱高舱","value":8400},
+                        {"name":"经济舱中等舱位","value":26410},
+                        {"name":"经济舱低价舱位","value":64610},
+                        {"name":"替代舱位","value":1100},
+                        {"name":"其他舱位","value":15009}
                     ],
                     "numberOfSheets": [
                         {"name":"头等舱","value":10},
-                        {"name":"头等舱及其子舱","value":21},
-                        {"name":"替代舱位","value":19},
-                        {"name":"经济舱位","value":663},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":20},
-                        {"name":"国际头等舱","value":0},
+                        {"name":"经济舱高舱","value":21},
+                        {"name":"经济舱中等舱位","value":19},
+                        {"name":"经济舱低价舱位","value":663},
+                        {"name":"替代舱位","value":20},
                         {"name":"其他舱位","value":0}
                     ]
                 },
                 {
                     "name": "CTU-TAO",
                     "areaSales": [
-                        {"name":"头等舱","value":10140},
-                        {"name":"头等舱及其子舱","value":35510},
-                        {"name":"替代舱位","value":84240},
-                        {"name":"经济舱位","value":471380},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":1720},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":3380}
+                        {"name":"头等舱","value":3400},
+                        {"name":"经济舱高舱","value":48820},
+                        {"name":"经济舱中等舱位","value":7650},
+                        {"name":"经济舱低价舱位","value":23680},
+                        {"name":"替代舱位","value":1310},
+                        {"name":"其他舱位","value":9654}
                     ],
                     "numberOfSheets": [
-                        {"name":"头等舱","value":4},
-                        {"name":"头等舱及其子舱","value":21},
-                        {"name":"替代舱位","value":39},
-                        {"name":"经济舱位","value":320},
-                        {"name":"国际中转舱位","value":0},
-                        {"name":"免票舱位","value":11},
-                        {"name":"国际头等舱","value":0},
-                        {"name":"其他舱位","value":2}
+                        {"name":"头等舱","value":201},
+                        {"name":"经济舱高舱","value":308},
+                        {"name":"经济舱中等舱位","value":601},
+                        {"name":"经济舱低价舱位","value":701},
+                        {"name":"替代舱位","value":90},
+                        {"name":"其他舱位","value":280}
                     ]
                 }
             ]

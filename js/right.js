@@ -64,6 +64,125 @@ $(document).ready(function () {
             $('.sales').html(res.allSales / 10000 + '万');
             $('.proxy').html(res.allProxy / 10000 + '万');
 
+
+            //总和销售分析
+            var homeLineZH = echarts.init(document.getElementById('homeLineZH'));
+            var lineZHOption = {
+                title: {
+                    left: 'left',
+                    text: '经营状况动态趋势',
+                    top:6,
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    position: function (pt) {
+                        return [pt[0], '10%'];
+                    },
+                    formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）<br />{a2}: {c2}'+'（张）<br />{a3}: {c3}'+'（张）'
+                },
+                legend: {
+                    top:35,
+                    left:10,
+                    data:['销售收入','承运收入','销售张数','承运张数'],
+                    selected:{
+                        '销售收入': true,
+                        '承运收入': true,
+                        '销售张数': false,
+                        '承运张数': false,
+                    }
+                },
+                grid: {
+                    top: '33%',
+                    left: '3%',
+                    right: '3%',
+                    bottom: '8%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: res.allDate.map(function (item) {
+                        return item.date
+                    })
+                },
+                yAxis: [
+                    {
+                        type:'value',
+                        name:"万元",
+                        splitLine: {
+                            show: false
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name:"张数",
+                        max: 60,
+                        splitLine: {
+                            show: false
+                        }
+                    }
+                ],
+                dataZoom: [
+                    {
+                        type: 'inside',
+                        startValue: '2016-10-4',
+                        endValue: '2016-10-11',
+                        filterMode: 'filter'
+                    },
+                    {
+                        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                        realtime: false,
+                        height:14,
+                        bottom:5,
+                        handleStyle: {
+                            color: '#fff',
+                            shadowBlur: 3,
+                            shadowColor: 'rgba(0, 0, 0, 0.6)',
+                            shadowOffsetX: 2,
+                            shadowOffsetY: 2
+                        }
+                    }],
+                series: [
+                    {
+                        name: '销售收入',
+                        type: 'line',
+                        smooth: true,
+                        yAxisIndex: 0,
+                        data: res.allDate.map(function (item) {
+                            return item.sales / 10000
+                        })
+                    },
+                    {
+                        name: '承运收入',
+                        type: 'line',
+                        yAxisIndex: 0,
+                        smooth: true,
+                        data: res.selectDate.map(function (item) {
+                            return item.sales / 10000
+                        })
+                    },
+                    {
+                        name: '销售张数',
+                        type: 'line',
+                        smooth: true,
+                        yAxisIndex: 1,
+                        data: res.allDate.map(function (item) {
+                            return item.proxy / 10000
+                        })
+                    },
+                    {
+                        name: '承运张数',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        smooth: true,
+                        data: res.selectDate.map(function (item) {
+                            return item.proxy / 10000
+                        })
+                    }
+                ]
+            };
+            homeLineZH.setOption(lineZHOption);
+
             //历史销售分析
             var homeLineXS = echarts.init(document.getElementById('homeLineXS'));
             var lineXSOption = {
@@ -81,10 +200,11 @@ $(document).ready(function () {
                 },
                 legend: {
                     top:10,
+                    right:10,
                     data:['销售额','代理费'],
                 },
                 grid: {
-                    top: '18%',
+                    top: '25%',
                     left: '3%',
                     right: '3%',
                     bottom: '8%',
@@ -101,24 +221,30 @@ $(document).ready(function () {
                     {
                         type:'value',
                         name:"万元",
+                        splitLine: {
+                            show: false
+                        }
                     },
                     {
                         type: 'value',
                         name:"万元",
                         max: 60,
+                        splitLine: {
+                            show: false
+                        }
                     }
                 ],
                 dataZoom: [
                     {
                         type: 'inside',
-                        startValue: '2016-8-1',
-                        endValue: '2016-8-4',
+                        startValue: '2016-10-4',
+                        endValue: '2016-10-8',
                         filterMode: 'filter'
                     },
                     {
                         handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
                         realtime: false,
-                        height:20,
+                        height:14,
                         bottom:5,
                         handleStyle: {
                             color: '#fff',
@@ -173,10 +299,11 @@ $(document).ready(function () {
                 },
                 legend: {
                     top:10,
+                    right:10,
                     data:['销售额','代理费'],
                 },
                 grid: {
-                    top: '18%',
+                    top: '25%',
                     left: '3%',
                     right: '3%',
                     bottom: '8%',
@@ -192,24 +319,30 @@ $(document).ready(function () {
                 yAxis: [
                     {
                         type: 'value',
-                        name:'万元'
+                        name:'万元',
+                        splitLine: {
+                            show: false
+                        }
                     },
                     {
                         type: 'value',
-                        name:'万元'
+                        name:'万元',
+                        splitLine: {
+                            show: false
+                        }
                     }
                 ],
                 dataZoom: [
                     {
                         type: 'inside',
-                        startValue: '2016-8-7',
-                        endValue: '2016-8-14',
+                        startValue: '2016-10-4',
+                        endValue: '2016-10-10',
                         filterMode: 'filter'
                     },
                     {
                         handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
                         realtime: false,
-                        height:20,
+                        height:14,
                         bottom:5,
                         handleStyle: {
                             color: '#fff',
@@ -259,7 +392,7 @@ $(document).ready(function () {
             var chinaOption = {
                 color:['#FF4455','#568EFD'],
                 title: {
-                    text: '地区分布',
+                    text: '全国片区销售收入分布',
                     top:10,
                     left: 10,
                 },
@@ -278,7 +411,7 @@ $(document).ready(function () {
                 },
                 series: [
                     {
-                        name: '销售量',
+                        name: '销售收入',
                         type: 'map',
                         mapType: 'china',
                         selectedMode: 'single',
@@ -312,7 +445,7 @@ $(document).ready(function () {
                     formatter: '{b}<br />{a0}: {c0}'+'（万）<br />{a1}: {c1}'+'（万）'
                 },
                 legend: {
-                    data: ['销售额', '代理费'],
+                    data: ['承运收入', '代理费'],
                     top:25,
                 },
                 grid: {
@@ -342,7 +475,7 @@ $(document).ready(function () {
                 ],
                 series: [
                     {
-                        name: '销售额',
+                        name: '承运收入',
                         type: 'bar',
                         yAxisIndex: 0,
                         label: {

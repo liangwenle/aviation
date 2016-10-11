@@ -24,11 +24,27 @@
             <input type="button" id="dateClear2" class="date_picker dateClear" value="清 空"/>
             <input type="submit" id="dateSubmit2" class="date_picker dateClear" value="提 交"/>
         </div>
+        <div class="floatRight detailsRight">
+            <select class="date_picker">
+                <option value="">请选择</option>
+                <option value="">昨日承运</option>
+                <option value="">昨日销售</option>
+                <option value="">过去一周销售</option>
+                <option value="">未来一周承运</option>
+            </select>
+        </div>
     </div>
     <!--详情-->
     <div class="channelLayout">
-        <div id="travelerBar" class="spaceBar"></div>
-        <div id="travelerPie" class="spacePie"></div>
+        <div class="travelerTop">
+            <div id="travelerBar" class="travelerTop_Bar"></div>
+            <div id="travelerPie" class="travelerTop_Pie"></div>
+            <div id="travelerPie2" class="travelerTop_Pie2"></div>
+        </div>
+        <div class="travelerBottom">
+            <div id="travelerBottom_Pie" class="travelerBottm_Pie"></div>
+            <div id="travelerBottom_Pie2" class="travelerBottm_Pie2"></div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>

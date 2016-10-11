@@ -65,7 +65,7 @@ $(function() {
             var travelerBarOption = {
                 title : {
                     text: '旅客类型收入',
-                    x:'left',
+                    left:10,
                     top:10
                 },
                 tooltip : {
@@ -98,7 +98,10 @@ $(function() {
                 ],
                 yAxis : [
                     {
-                        type : 'value'
+                        type : 'value',
+                        splitLine: {
+                            show: false
+                        }
                     }
                 ],
                 series : [
@@ -130,7 +133,7 @@ $(function() {
             };
             travelerBar.setOption(travelerBarOption);
 
-            //南丁格尔玫瑰图
+            //客票张数 - 饼图
             var travelerPie = echarts.init(document.getElementById('travelerPie'));
             var travelerPieOption = {
                 title : {
@@ -152,9 +155,9 @@ $(function() {
                     {
                         name:'面积模式',
                         type:'pie',
-                        radius : ['30%','56%'],
+                        radius : '55%',
                         center : ['50%', '50%'],
-                        roseType : 'area',
+                        /*roseType : 'area',*/
                         startAngle: 130,
                         itemStyle:{
                             normal:{
@@ -172,6 +175,143 @@ $(function() {
             };
             travelerPie.setOption(travelerPieOption);
 
+            //客票张数及占比 - 饼图
+            var travelerPie2 = echarts.init(document.getElementById('travelerPie2'));
+            var travelerPie2Option = {
+                title : {
+                    text: '客票张数及占比',
+                    x:'center',
+                    top:10
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{b} : {c}万 ({d}%)"
+                },
+                legend: {
+                    x : 'center',
+                    bottom : 20,
+                    data:['会员','非会员']
+                },
+                calculable : true,
+                series : [
+                    {
+                        name: '汇总收入',
+                        type: 'pie',
+                        radius : '55%',
+                        center : ['50%', '50%'],
+                        data:[
+                            {value:335, name:'会员'},
+                            {value:310, name:'非会员'}
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+            travelerPie2.setOption(travelerPie2Option);
+
+            //旅客客源地结构构成分析 - 南丁格尔玫瑰图
+            var travelerBottom_Pie = echarts.init(document.getElementById('travelerBottom_Pie'));
+            var travelerBottom_PieOption = {
+                title : {
+                    text: '旅客客源地结构构成分析',
+                    x:'center',
+                    top:10
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{b} : {c}万 ({d}%)"
+                },
+                legend: {
+                    left:20,
+                    bottom : 10,
+                    data:['北京','上海','深圳','成都','杭州','昆明','重庆','西安','拉萨','丽江','绵阳']
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'面积模式',
+                        type:'pie',
+                        radius : ['30%','56%'],
+                        center : ['50%', '50%'],
+                        roseType : 'area',
+                        startAngle: 130,
+                        itemStyle:{
+                            normal:{
+                                label:{
+                                    formatter:'{b}:{d}%'
+                                },
+                            },
+                        },
+                        data:[
+                            {value:11335, name:'北京'},
+                            {value:8310, name:'上海'},
+                            {value:9974, name:'深圳'},
+                            {value:15935, name:'成都'},
+                            {value:7235, name:'杭州'},
+                            {value:4235, name:'昆明'},
+                            {value:9235, name:'重庆'},
+                            {value:6400, name:'西安'},
+                            {value:2400, name:'拉萨'},
+                            {value:4400, name:'丽江'},
+                            {value:900, name:'绵阳'}
+                        ].sort(function (a, b) { return a.value - b.value})
+                    }
+                ]
+            };
+            travelerBottom_Pie.setOption(travelerBottom_PieOption);
+
+            //旅客购票周期分析 - 南丁格尔玫瑰图
+            var travelerBottom_Pie2 = echarts.init(document.getElementById('travelerBottom_Pie2'));
+            var travelerBottom_Pie2Option = {
+                title : {
+                    text: '旅客购票周期分析',
+                    x:'center',
+                    top:10
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{b} : {c}万 ({d}%)"
+                },
+                legend: {
+                    x : 'center',
+                    bottom : 10,
+                    data:['一天','三天','一周','半月','三周','一个月','二个月']
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'面积模式',
+                        type:'pie',
+                        radius : ['30%','56%'],
+                        center : ['50%', '50%'],
+                        roseType : 'area',
+                        startAngle: 130,
+                        itemStyle:{
+                            normal:{
+                                label:{
+                                    formatter:'{b}:{d}%'
+                                },
+                            },
+                        },
+                        data:[
+                            {value:8310, name:'二个月'},
+                            {value:9974, name:'一个月'},
+                            {value:8935, name:'三周'},
+                            {value:7235, name:'半月'},
+                            {value:4235, name:'一周'},
+                            {value:9235, name:'三天'},
+                            {value:6400, name:'一天'}
+                        ].sort(function (a, b) { return a.value - b.value})
+                    }
+                ]
+            };
+            travelerBottom_Pie2.setOption(travelerBottom_Pie2Option);
 
 
             //页面接收数据刷新
@@ -279,7 +419,7 @@ $(function() {
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                if (allDate[3] !== undefined) {
+                /*if (allDate[3] !== undefined) {*/
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
@@ -287,18 +427,18 @@ $(function() {
                     if (indexOne == '0' && indexTwo == '3' && indexThree == '0') { //成都片区
                         //柱状图
                         var spaceBarData = res.travelersData2[1].travelers
-                        travelerBarOption.grid.bottom = '6%';
+                        travelerBarOption.grid.bottom = '8%';
                         travelerBarOption.dataZoom = [
                             {
                                 type: 'inside',
                                 startValue: 'CTU-PEK',
-                                endValue: 'CTU-HGH',
+                                endValue: 'CTU-KMG',
                                 filterMode: 'filter'
                             },
                             {
                                 handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
                                 realtime: false,
-                                height:20,
+                                height:14,
                                 bottom:5,
                                 handleStyle: {
                                     color: '#fff',
@@ -330,9 +470,9 @@ $(function() {
                     } else{
                         alert('请选择3U、成都片区、成都营业厅再进行查询，谢谢!!!');
                     };
-                }else{
+                /*}else{
                     alert('请选择四个时间段再进行查询，谢谢!!!');
-                }
+                }*/
             }
         })
 })

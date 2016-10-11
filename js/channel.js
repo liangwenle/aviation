@@ -52,6 +52,58 @@ $(function () {
             })
 
 
+            //树形图
+            var channelForce = echarts.init(document.getElementById('channelForce'));
+            var channelForce_option = {
+                title: {
+                    text: '渠道收入结构层级图',
+                    left:10,
+                    top:10
+                },
+                tooltip: {
+                    trigger: 'item',
+                    triggerOn: 'mousemove',
+                },
+                series: [
+                    {
+                        type: 'sankey',
+                        layout:'none',
+                        data: res.nodes,
+                        links: res.links,
+                        nodeWidth:50,
+                        nodeGap:14,
+                        label:{
+                            normal:{
+                                show:true,
+                                formatter:'{b}:{c}（万）'
+                                /*formatter :function(params){
+                                    var data = res.nodes;
+                                    for(var i = 0; i < data.length;i++){
+                                        var obj = {};
+                                        var name = data[i].name;
+                                        var value = data[i].value;
+                                        obj.name = name;
+                                        obj.value = value
+                                        return obj.name + ':' + obj.value;
+                                    }
+                                },*/
+                            },
+                        },
+                        itemStyle: {
+                            normal: {
+                                borderWidth: 1,
+                                borderColor: '#aaa'
+                            }
+                        },
+                        lineStyle: {
+                            normal: {
+                                curveness: 0.5
+                            }
+                        }
+                    }
+                ]
+            };
+            channelForce.setOption(channelForce_option);
             //一级饼图
             var channel_onePie = echarts.init(document.getElementById('channel_onePie'));
             var onePie_option = {
@@ -371,7 +423,6 @@ $(function () {
                 return receive;
             }
             allDate = getQryStr();
-            console.log(allDate);
 
             //菜单筛选清空按钮
             $('#dateClear2').on('click', function () {
@@ -467,7 +518,7 @@ $(function () {
             //全局时间筛选数据  点击全局提交的时候会清空分页面的层级筛选内容
             //通用方法给分页面按钮
             function pageDate(){
-                if (allDate[3] !== undefined) {
+                /*if (allDate[3] !== undefined) {*/
                     //判断页面是否有局部层级筛选
                     var indexOne = $('.oneSelect').find('option:selected').attr('data-index');
                     var indexTwo = $('.twoSelect').find('option:selected').attr('data-index');
@@ -509,9 +560,9 @@ $(function () {
                     } else{
                         alert('请选择3U、成都片区、成都营业厅再进行查询，谢谢!!!');
                     }
-                }else{
+                /*}else{
                     alert('请选择四个时间段再进行查询，谢谢!!!');
-                }
+                }*/
             }
 
             /*pageDate()*/
