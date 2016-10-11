@@ -56,8 +56,8 @@ $(function() {
 
         //饼图点击事件
         interLinePie.on('click',function(param){
-            if(!window.flag) {
-                window.flag = 1;
+            /*if(!window.flag) {
+                window.flag = 1;*/
                 var data_index = param.dataIndex;
                 if (data_index == 1) {
                     //创建饼图
@@ -160,14 +160,14 @@ $(function() {
                     return;
                 }
                 interLinePie.setOption(interOption);
-            }else{
+            /*}else{
                 interOption.series[0].data = res.interLineData[0].interLinePie.map(function(item){
                     var value = item.value / 10000
                     return {name:item.name,value:value}
                 })
                 interLinePie.setOption(interOption);
                 window.flag = 0;
-            }
+            }*/
         })
 
         //地图
