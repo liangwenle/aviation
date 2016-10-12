@@ -1,4 +1,7 @@
 $(function () {
+    //内容高度
+    var mainBottom_H = $(document).height() - 60 + 'px';
+    $('.mainBottom').css('height',mainBottom_H);
     //获取日期内容
     function allFilter(){
         var xsStart =new Date($('#datePicker').val()).getTime() / 1000,
