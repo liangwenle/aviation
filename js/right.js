@@ -544,8 +544,7 @@ $(document).ready(function () {
                 for (var i = 0; i < queryArr.length; i++) {
                     if (queryArr[0] == "") {
                         return
-                    }
-                    ;  //判断是否筛选了时间
+                    };  //判断是否筛选了时间
                     item = queryArr[i];
                     if (item.indexOf("=") !== -1) {
                         tempArr = item.split("=");
