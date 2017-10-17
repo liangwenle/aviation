@@ -50,6 +50,9 @@ $(function () {
                 }
 
             })
+            
+            console.log(res.nodes);
+            console.log(res.links);
 
 
             //树形图
