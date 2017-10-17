@@ -53,6 +53,7 @@ $(function () {
             
             console.log(res.nodes);
             console.log(res.links);
+            debugger
 
 
             //树形图
